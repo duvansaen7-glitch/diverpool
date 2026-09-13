@@ -1,0 +1,24 @@
+# Dependencias
+node_modules/
+
+# Variables y secretos
+.env
+.env.*
+
+# Archivos temporales
+*.log
+*.tmp
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# XAMPP / temporales
+*.bak
+
+# Si utiliza uploads, normalmente no se suben archivos pesados
+uploads/*
