@@ -1419,3 +1419,673 @@ form .btn {
         grid-column: auto;
     }
 }
+
+/* =========================================================
+   DIVERPOOOL — AJUSTES PARA LA ESTRUCTURA ACTUAL DE INDEX.PHP
+   ========================================================= */
+
+/* ---------- HERO REAL ---------- */
+
+.hero-grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: minmax(0, 1.08fr) minmax(380px, .92fr);
+    align-items: center;
+    gap: 55px;
+}
+
+.hero-copy {
+    position: relative;
+    z-index: 3;
+    padding: 78px 0;
+}
+
+.hero-copy .eyebrow {
+    color: #ffad70;
+    margin-bottom: 18px;
+}
+
+.hero-copy h1 {
+    margin-bottom: 22px;
+}
+
+.hero-art {
+    position: relative;
+    min-height: 510px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.blob {
+    position: absolute;
+    width: 390px;
+    height: 390px;
+    border-radius: 44% 56% 58% 42% / 44% 40% 60% 56%;
+    background: rgba(255, 255, 255, .10);
+    transform: rotate(-8deg);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.08);
+}
+
+.pet-card {
+    position: absolute;
+    z-index: 3;
+    width: 215px;
+    padding: 20px;
+    border: 1px solid rgba(255,255,255,.18);
+    border-radius: 22px;
+    background: rgba(255,255,255,.96);
+    color: var(--gray-900);
+    box-shadow: 0 22px 45px rgba(20, 7, 40, .22);
+    backdrop-filter: blur(12px);
+}
+
+.pet-card.dog {
+    top: 65px;
+    left: 18px;
+    transform: rotate(-5deg);
+}
+
+.pet-card.cat {
+    right: 10px;
+    bottom: 72px;
+    transform: rotate(5deg);
+}
+
+.pet-emoji {
+    width: 72px;
+    height: 72px;
+    display: grid;
+    place-items: center;
+    margin-bottom: 13px;
+    border-radius: 20px;
+    background: var(--purple-100);
+    font-size: 43px;
+}
+
+.pet-card strong {
+    display: block;
+    margin-bottom: 3px;
+    font-size: 16px;
+    font-weight: 900;
+}
+
+.pet-card small {
+    color: var(--gray-600);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.hero-note {
+    position: absolute;
+    right: 58px;
+    top: 50%;
+    z-index: 4;
+    padding: 13px 18px;
+    border-radius: 14px;
+    background: var(--orange);
+    color: var(--white);
+    font-size: 13px;
+    line-height: 1.35;
+    box-shadow: 0 14px 28px rgba(255, 122, 24, .25);
+    transform: translateY(-50%) rotate(-2deg);
+}
+
+.hero-note b {
+    font-size: 15px;
+}
+
+.trust-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-top: 42px;
+}
+
+.trust-row > div {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    color: rgba(255,255,255,.78);
+    font-size: 11px;
+    line-height: 1.35;
+    font-weight: 700;
+}
+
+.trust-row b {
+    width: 28px;
+    height: 28px;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: rgba(255,255,255,.11);
+    color: #ffb37d;
+    font-size: 14px;
+}
+
+
+/* ---------- CABECERAS DE SECCIÓN ---------- */
+
+.section-heading {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 30px;
+    margin-bottom: 42px;
+}
+
+.section-heading.centered {
+    display: block;
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.section-heading .eyebrow {
+    margin-bottom: 9px;
+}
+
+.section-heading h2 {
+    max-width: 650px;
+    margin: 0;
+    color: var(--gray-900);
+    font-size: clamp(30px, 4vw, 44px);
+    line-height: 1.1;
+    letter-spacing: -1px;
+    font-weight: 900;
+}
+
+.section-heading > a {
+    flex-shrink: 0;
+    color: var(--purple-700);
+    font-size: 14px;
+    font-weight: 900;
+}
+
+.section-heading > a:hover {
+    color: var(--orange);
+}
+
+
+/* ---------- SERVICIOS ---------- */
+
+.services {
+    background: var(--white);
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.service-card {
+    overflow: hidden;
+    padding: 0;
+    border: 1px solid var(--gray-200);
+    border-radius: 20px;
+    background: var(--white);
+}
+
+.service-image {
+    height: 155px;
+    display: grid;
+    place-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.service-image::before,
+.service-image::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255,255,255,.15);
+}
+
+.service-image::before {
+    width: 130px;
+    height: 130px;
+    right: -25px;
+    top: -40px;
+}
+
+.service-image::after {
+    width: 80px;
+    height: 80px;
+    left: -20px;
+    bottom: -25px;
+}
+
+.service-image span {
+    position: relative;
+    z-index: 2;
+    width: 78px;
+    height: 78px;
+    display: grid;
+    place-items: center;
+    border-radius: 24px;
+    background: rgba(255,255,255,.92);
+    color: var(--purple-700);
+    font-size: 34px;
+    font-weight: 900;
+    box-shadow: 0 12px 25px rgba(49,16,95,.12);
+}
+
+.service-peluqueria { background: linear-gradient(135deg, #ead9fa, #cba4eb); }
+.service-terapias { background: linear-gradient(135deg, #e2f4ec, #a9ddc3); }
+.service-veterinaria { background: linear-gradient(135deg, #e2ecfb, #abc8f0); }
+.service-guarderia { background: linear-gradient(135deg, #fff0d9, #ffd08e); }
+.service-campestre { background: linear-gradient(135deg, #e6f4d9, #b9dc8b); }
+.service-consultas { background: linear-gradient(135deg, #f7e4f3, #e5b6da); }
+
+.service-body {
+    padding: 23px 24px 25px;
+}
+
+.service-body h3 {
+    margin-bottom: 8px;
+    color: var(--gray-900);
+    font-size: 19px;
+    font-weight: 900;
+}
+
+.service-body p {
+    min-height: 47px;
+    color: var(--gray-600);
+    font-size: 13px;
+    line-height: 1.65;
+}
+
+.service-body a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 17px;
+    color: var(--purple-700);
+    font-size: 14px;
+    font-weight: 900;
+}
+
+.service-body a::after {
+    content: "→";
+    transition: transform .2s ease;
+}
+
+.service-body a:hover {
+    color: var(--orange);
+}
+
+.service-body a:hover::after {
+    transform: translateX(4px);
+}
+
+
+/* ---------- ESTADÍSTICAS ---------- */
+
+.stats {
+    padding: 0;
+    background: var(--purple-900);
+}
+
+.stats-grid > div {
+    min-height: 135px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 22px 15px;
+    text-align: center;
+    border-right: 1px solid rgba(255,255,255,.12);
+}
+
+.stats-grid > div:last-child {
+    border-right: 0;
+}
+
+.stats-grid strong {
+    display: block;
+    margin-bottom: 6px;
+    color: var(--white);
+    font-size: 32px;
+    line-height: 1;
+    font-weight: 900;
+}
+
+.stats-grid span {
+    color: rgba(255,255,255,.62);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+
+/* ---------- PASOS ---------- */
+
+.steps {
+    background: var(--purple-50);
+}
+
+.steps-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.step {
+    min-height: 205px;
+    padding: 28px 22px;
+    border: 1px solid var(--gray-200);
+    box-shadow: var(--shadow-sm);
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.step:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.step i {
+    width: 48px;
+    height: 48px;
+    display: grid;
+    place-items: center;
+    margin: 0 auto 18px;
+    border-radius: 50%;
+    background: var(--purple-700);
+    color: var(--white);
+    font-style: normal;
+    font-size: 16px;
+    font-weight: 900;
+}
+
+.step b {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--gray-900);
+    font-size: 16px;
+    font-weight: 900;
+}
+
+.step p {
+    margin: 0;
+}
+
+
+/* ---------- NOSOTROS ---------- */
+
+.about {
+    background: var(--white);
+}
+
+.about-card {
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1.05fr .95fr;
+    align-items: center;
+    gap: 55px;
+    padding: 60px;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #f7effc, #eee0f8);
+    border: 1px solid #e8d8f2;
+}
+
+.about-card::before {
+    content: "";
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    right: -110px;
+    top: -130px;
+    border-radius: 50%;
+    background: rgba(112,39,168,.08);
+}
+
+.about-card h2 {
+    max-width: 590px;
+    margin: 10px 0 18px;
+    color: var(--gray-900);
+    font-size: clamp(30px, 4vw, 44px);
+    line-height: 1.08;
+    letter-spacing: -1px;
+    font-weight: 900;
+}
+
+.about-card p {
+    max-width: 620px;
+    margin-bottom: 25px;
+    color: var(--gray-600);
+    font-size: 15px;
+    line-height: 1.75;
+}
+
+.about-pets {
+    position: relative;
+    z-index: 2;
+    min-height: 260px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    border-radius: 26px;
+    background: linear-gradient(145deg, var(--purple-700), var(--purple-900));
+    color: var(--white);
+    font-size: 85px;
+    box-shadow: 0 20px 40px rgba(49,16,95,.18);
+}
+
+.about-pets span {
+    color: #ff9a4a;
+    font-size: 40px;
+    transform: translateY(-45px);
+}
+
+
+/* ---------- CONTACTO ---------- */
+
+.contact {
+    background: var(--purple-50);
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 55px;
+}
+
+.contact-grid > div:first-child h2 {
+    margin: 10px 0 15px;
+    color: var(--gray-900);
+    font-size: clamp(32px, 4vw, 45px);
+    line-height: 1.08;
+    font-weight: 900;
+}
+
+.contact-grid > div:first-child p {
+    max-width: 560px;
+    color: var(--gray-600);
+    font-size: 16px;
+}
+
+.contact-box {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 13px;
+    padding: 28px;
+    border-radius: 22px;
+    background: var(--purple-900);
+}
+
+.contact-box > div {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 15px;
+    border-radius: 13px;
+    background: rgba(255,255,255,.07);
+    color: rgba(255,255,255,.9);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.contact-box > div:first-letter {
+    color: #ff9a4a;
+}
+
+
+/* =========================================================
+   RESPONSIVE DE LA ESTRUCTURA ACTUAL
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+    .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .hero-copy {
+        padding: 70px 0 25px;
+    }
+
+    .hero-art {
+        min-height: 400px;
+        margin-bottom: 45px;
+    }
+
+    .service-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .steps-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about-card {
+        grid-template-columns: 1fr;
+        padding: 45px;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 760px) {
+
+    .hero-copy {
+        padding: 55px 0 15px;
+    }
+
+    .hero-copy h1 {
+        font-size: 43px;
+    }
+
+    .hero-art {
+        min-height: 360px;
+        transform: scale(.92);
+        transform-origin: center top;
+    }
+
+    .pet-card.dog {
+        left: 0;
+    }
+
+    .pet-card.cat {
+        right: 0;
+    }
+
+    .hero-note {
+        right: 8px;
+    }
+
+    .trust-row {
+        gap: 16px;
+    }
+
+    .trust-row > div {
+        flex: 1 1 140px;
+    }
+
+    .section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        margin-bottom: 30px;
+    }
+
+    .section-heading > a {
+        margin-top: -10px;
+    }
+
+    .service-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stats-grid > div {
+        min-height: 115px;
+        border-right: 0;
+        border-bottom: 1px solid rgba(255,255,255,.12);
+    }
+
+    .stats-grid > div:nth-child(3),
+    .stats-grid > div:nth-child(4) {
+        border-bottom: 0;
+    }
+
+    .steps-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-card {
+        padding: 32px 24px;
+        border-radius: 23px;
+    }
+
+    .about-pets {
+        min-height: 220px;
+        font-size: 67px;
+    }
+
+    .contact-grid {
+        gap: 30px;
+    }
+}
+
+@media (max-width: 430px) {
+
+    .hero-copy h1 {
+        font-size: 37px;
+    }
+
+    .hero-art {
+        min-height: 320px;
+        transform: scale(.82);
+        margin-left: -25px;
+        margin-right: -25px;
+    }
+
+    .pet-card {
+        width: 190px;
+    }
+
+    .pet-card.dog {
+        top: 55px;
+    }
+
+    .pet-card.cat {
+        bottom: 45px;
+    }
+
+    .hero-note {
+        font-size: 11px;
+    }
+
+    .trust-row {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
