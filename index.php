@@ -3,7 +3,7 @@
 require_once __DIR__ . '/config/config.php';
 require_once __DIR__ . '/includes/funciones.php';
 
-$pageTitle = 'Diverpoool Mascotas | Cuidado y bienestar';
+$pageTitle = 'Diverpool Mascotas | Cuidado y bienestar';
 $pageDescription = 'Encuentre y agende servicios de peluquería canina, terapias, veterinaria, consultas y guardería para su mascota.';
 
 require_once __DIR__ . '/includes/header.php';
@@ -375,7 +375,7 @@ require_once __DIR__ . '/includes/navbar.php';
                     </b>
 
                     <p>
-                        Cree su cuenta en Diverpoool.
+                        Cree su cuenta en Diverpool.
                     </p>
 
                 </div>
@@ -446,7 +446,7 @@ require_once __DIR__ . '/includes/navbar.php';
             <div>
 
                 <span class="eyebrow">
-                    DIVERPOOOL MASCOTAS
+                    DIVERPOOL MASCOTAS
                 </span>
 
                 <h2>
@@ -523,7 +523,7 @@ require_once __DIR__ . '/includes/navbar.php';
                     ✉
 
                     <span>
-                        contacto@diverpoool.com
+                        contacto@diverpool.com
                     </span>
 
                 </div>

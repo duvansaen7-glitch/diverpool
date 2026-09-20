@@ -9,7 +9,7 @@
                 <span class="brand-mark">D</span>
 
                 <span>
-                    <strong>Diverpoool</strong>
+                    <strong>Diverpool</strong>
                     <small>MASCOTAS</small>
                 </span>
 
@@ -74,7 +74,7 @@
     <div class="container footer-bottom">
 
         © <?= date('Y') ?>
-        Diverpoool Mascotas.
+        Diverpool Mascotas.
         Todos los derechos reservados.
 
     </div>

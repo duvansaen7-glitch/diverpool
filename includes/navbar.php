@@ -1,11 +1,11 @@
 <header class="site-header">
     <div class="container nav-wrap">
 
-        <a class="brand" href="index.php" aria-label="Diverpoool Mascotas">
+        <a class="brand" href="index.php" aria-label="Diverpool Mascotas">
             <span class="brand-mark">D</span>
 
             <span>
-                <strong>Diverpoool</strong>
+                <strong>Diverpool</strong>
                 <small>MASCOTAS</small>
             </span>
         </a>

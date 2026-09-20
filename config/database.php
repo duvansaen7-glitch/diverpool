@@ -1,11 +1,11 @@
 <?php
 
 /**
- * Conexión a la base de datos de Diverpoool
+ * Conexión a la base de datos de Diverpool
  */
 
 define('DB_HOST', 'localhost');
-define('DB_NAME', 'diverpoool');
+define('DB_NAME', 'diverpool');
 define('DB_USER', 'root');
 define('DB_PASS', '');
 

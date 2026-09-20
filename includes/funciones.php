@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Funciones generales de Diverpoool
+ * Funciones generales de Diverpool
  */
 
 /**

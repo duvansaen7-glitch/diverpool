@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Configuración general de Diverpoool
+ * Configuración general de Diverpool
  */
 
-define('SITE_NAME', 'Diverpoool Mascotas');
+define('SITE_NAME', 'Diverpool Mascotas');
 
-define('SITE_URL', 'http://localhost/diverpoool');
+define('SITE_URL', 'http://localhost/diverpool');
 
 define('SITE_DESCRIPTION', 'Servicios y bienestar para mascotas.');
 

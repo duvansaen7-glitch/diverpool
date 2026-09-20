@@ -1,14 +1,14 @@
 -- ============================================================
--- DIVERPOOOL MASCOTAS
+-- DIVERPOOL MASCOTAS
 -- Base de datos principal
 -- MySQL / MariaDB
 -- ============================================================
 
-CREATE DATABASE IF NOT EXISTS diverpoool
+CREATE DATABASE IF NOT EXISTS diverpool
 CHARACTER SET utf8mb4
 COLLATE utf8mb4_unicode_ci;
 
-USE diverpoool;
+USE diverpool;
 
 SET FOREIGN_KEY_CHECKS = 0;
 
@@ -851,11 +851,11 @@ INSERT INTO sedes
 )
 VALUES
 (
-    'Diverpoool Mascotas',
+    'Diverpool Mascotas',
     'Dirección pendiente',
     'Bogotá',
     '3000000000',
-    'contacto@diverpoool.com'
+    'contacto@diverpool.com'
 );
 
 
