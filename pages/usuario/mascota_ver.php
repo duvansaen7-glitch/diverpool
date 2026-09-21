@@ -1,7 +1,6 @@
 <?php
 
 require_once __DIR__ . '/../../config/config.php';
-require_once __DIR__ . '/../../config/database.php';
 require_once __DIR__ . '/../../models/Mascota.php';
 require_once __DIR__ . '/../../includes/funciones.php';
 
@@ -17,7 +16,7 @@ if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
 
 $mascotaId = (int) $_GET['id'];
 
-$mascotaModel = new Mascota($pdo);
+$mascotaModel = new Mascota();
 
 $mascota = $mascotaModel->obtenerPorId(
     $mascotaId,
@@ -51,10 +50,7 @@ require_once __DIR__ . '/../../includes/navbar.php';
 
             <?php if (!empty($mascota['foto'])): ?>
 
-                <img
-                    src="<?= SITE_URL . '/' . e($mascota['foto']) ?>"
-                    alt="Foto de <?= e($mascota['nombre']) ?>"
-                >
+                <img src="<?= SITE_URL . '/' . e($mascota['foto']) ?>" alt="Foto de <?= e($mascota['nombre']) ?>">
 
             <?php else: ?>
 
@@ -101,7 +97,7 @@ require_once __DIR__ . '/../../includes/navbar.php';
                         <?= !empty($mascota['fecha_nacimiento'])
                             ? e($mascota['fecha_nacimiento'])
                             : 'No registrada'
-                        ?>
+                            ?>
                     </span>
                 </div>
 
@@ -111,7 +107,7 @@ require_once __DIR__ . '/../../includes/navbar.php';
                         <?= $mascota['peso'] !== null
                             ? e($mascota['peso']) . ' kg'
                             : 'No registrado'
-                        ?>
+                            ?>
                     </span>
                 </div>
 
@@ -121,7 +117,7 @@ require_once __DIR__ . '/../../includes/navbar.php';
                         <?= !empty($mascota['color'])
                             ? e($mascota['color'])
                             : 'No registrado'
-                        ?>
+                            ?>
                     </span>
                 </div>
 
@@ -131,7 +127,7 @@ require_once __DIR__ . '/../../includes/navbar.php';
                         <?= !empty($mascota['microchip'])
                             ? e($mascota['microchip'])
                             : 'No registrado'
-                        ?>
+                            ?>
                     </span>
                 </div>
 
@@ -141,7 +137,7 @@ require_once __DIR__ . '/../../includes/navbar.php';
                         <?= !empty($mascota['esterilizado'])
                             ? 'Sí'
                             : 'No'
-                        ?>
+                            ?>
                     </span>
                 </div>
 
@@ -155,24 +151,19 @@ require_once __DIR__ . '/../../includes/navbar.php';
                     <?= !empty($mascota['observaciones'])
                         ? nl2br(e($mascota['observaciones']))
                         : 'No hay observaciones registradas.'
-                    ?>
+                        ?>
                 </p>
 
             </div>
 
             <div class="mascota-detail-actions">
 
-                <a
-                    href="<?= SITE_URL ?>/pages/usuario/mascota_editar.php?id=<?= (int) $mascota['id'] ?>"
-                    class="btn btn-primary"
-                >
+                <a href="<?= SITE_URL ?>/pages/usuario/mascota_editar.php?id=<?= (int) $mascota['id'] ?>"
+                    class="btn btn-primary">
                     Editar mascota
                 </a>
 
-                <a
-                    href="<?= SITE_URL ?>/pages/usuario/mascotas.php"
-                    class="btn btn-outline"
-                >
+                <a href="<?= SITE_URL ?>/pages/usuario/mascotas.php" class="btn btn-outline">
                     Volver a mis mascotas
                 </a>
 
@@ -185,4 +176,3 @@ require_once __DIR__ . '/../../includes/navbar.php';
 </main>
 
 <?php require_once __DIR__ . '/../../includes/footer.php'; ?>
-

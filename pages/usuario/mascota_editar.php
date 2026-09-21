@@ -1,7 +1,6 @@
 <?php
 
 require_once __DIR__ . '/../../config/config.php';
-require_once __DIR__ . '/../../config/database.php';
 require_once __DIR__ . '/../../models/Mascota.php';
 require_once __DIR__ . '/../../includes/funciones.php';
 
@@ -23,7 +22,7 @@ if (
 
 $mascotaId = (int) $_GET['id'];
 
-$mascotaModel = new Mascota($pdo);
+$mascotaModel = new Mascota();
 
 $mascota =
     $mascotaModel->obtenerPorId(

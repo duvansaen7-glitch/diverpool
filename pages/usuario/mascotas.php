@@ -245,7 +245,7 @@ require_once __DIR__ . '/../../includes/navbar.php';
                                 <div class="mascota-actions">
 
                                     <a href="<?= SITE_URL ?>/pages/usuario/mascota_editar.php?id=<?= (int) $mascota['id'] ?>"
-                                        class="btn btn-outline">
+                                        class="btn-edit">
                                         Editar
                                     </a>
 
