@@ -1,0 +1,123 @@
+/* =========================================================
+   DIVERPOOL MASCOTAS — buttons.css
+   ========================================================= */
+
+/* =========================
+   BOTONES
+   ========================= */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    min-height: 50px;
+    padding: 0 24px;
+
+    border: 0;
+    border-radius: 12px;
+
+    font-weight: 800;
+    font-size: 15px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   BOTÓN PRINCIPAL
+   ========================= */
+
+.btn-primary {
+    background: var(--purple-700);
+    color: var(--white);
+
+    box-shadow:
+        0 9px 22px rgba(91, 29, 145, 0.23);
+}
+
+.btn-primary:hover {
+    background: var(--purple-800);
+
+    box-shadow:
+        0 12px 27px rgba(91, 29, 145, 0.30);
+}
+
+
+/* =========================
+   BOTÓN NARANJA
+   ========================= */
+
+.btn-orange {
+    background: var(--orange);
+    color: var(--white);
+
+    box-shadow:
+        0 9px 22px rgba(255, 122, 24, 0.23);
+}
+
+.btn-orange:hover {
+    background: var(--orange-dark);
+}
+
+
+/* =========================
+   BOTÓN OUTLINE
+   ========================= */
+
+.btn-outline {
+    background: transparent;
+
+    border: 1.5px solid var(--purple-600);
+
+    color: var(--purple-700);
+}
+
+.btn-outline:hover {
+    background: var(--purple-50);
+}
+
+
+/* =========================
+   BOTÓN ELIMINAR
+   ========================= */
+
+.btn-danger {
+    background: #c0392b;
+    color: var(--white);
+
+    box-shadow:
+        0 7px 18px rgba(192, 57, 43, 0.20);
+}
+
+.btn-danger:hover {
+    background: #a93226;
+
+    box-shadow:
+        0 10px 22px rgba(192, 57, 43, 0.28);
+}
+
+
+/* =========================
+   BOTÓN PEQUEÑO
+   ========================= */
+
+.btn-small {
+    min-height: 43px;
+    padding: 0 18px;
+
+    border-radius: 10px;
+
+    font-size: 14px;
+}

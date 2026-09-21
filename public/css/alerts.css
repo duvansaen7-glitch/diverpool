@@ -1,0 +1,32 @@
+/* =========================================================
+   DIVERPOOL MASCOTAS — alerts.css
+   ========================================================= */
+
+/* =========================
+   MENSAJES
+   ========================= */
+
+.alert {
+    padding: 13px 15px;
+    margin-bottom: 20px;
+
+    border-radius: 11px;
+
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.alert-success {
+    background: #e8f7ef;
+    color: #20734a;
+}
+
+.alert-error {
+    background: #fdecec;
+    color: #a93232;
+}
+
+.alert-info {
+    background: var(--purple-100);
+    color: var(--purple-800);
+}

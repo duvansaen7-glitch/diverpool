@@ -1,0 +1,157 @@
+/* =========================================================
+   RESPONSIVE DE LA ESTRUCTURA ACTUAL
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+    .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .hero-copy {
+        padding: 70px 0 25px;
+    }
+
+    .hero-art {
+        min-height: 400px;
+        margin-bottom: 45px;
+    }
+
+    .service-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .steps-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about-card {
+        grid-template-columns: 1fr;
+        padding: 45px;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 760px) {
+
+    .hero-copy {
+        padding: 55px 0 15px;
+    }
+
+    .hero-copy h1 {
+        font-size: 43px;
+    }
+
+    .hero-art {
+        min-height: 360px;
+        transform: scale(.92);
+        transform-origin: center top;
+    }
+
+    .pet-card.dog {
+        left: 0;
+    }
+
+    .pet-card.cat {
+        right: 0;
+    }
+
+    .hero-note {
+        right: 8px;
+    }
+
+    .trust-row {
+        gap: 16px;
+    }
+
+    .trust-row>div {
+        flex: 1 1 140px;
+    }
+
+    .section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        margin-bottom: 30px;
+    }
+
+    .section-heading>a {
+        margin-top: -10px;
+    }
+
+    .service-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stats-grid>div {
+        min-height: 115px;
+        border-right: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, .12);
+    }
+
+    .stats-grid>div:nth-child(3),
+    .stats-grid>div:nth-child(4) {
+        border-bottom: 0;
+    }
+
+    .steps-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-card {
+        padding: 32px 24px;
+        border-radius: 23px;
+    }
+
+    .about-pets {
+        min-height: 220px;
+        font-size: 67px;
+    }
+
+    .contact-grid {
+        gap: 30px;
+    }
+}
+
+@media (max-width: 430px) {
+
+    .hero-copy h1 {
+        font-size: 37px;
+    }
+
+    .hero-art {
+        min-height: 320px;
+        transform: scale(.82);
+        margin-left: -25px;
+        margin-right: -25px;
+    }
+
+    .pet-card {
+        width: 190px;
+    }
+
+    .pet-card.dog {
+        top: 55px;
+    }
+
+    .pet-card.cat {
+        bottom: 45px;
+    }
+
+    .hero-note {
+        font-size: 11px;
+    }
+
+    .trust-row {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+

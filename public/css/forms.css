@@ -1,0 +1,310 @@
+/* =========================================================
+   DIVERPOOL MASCOTAS — forms.css
+   ========================================================= */
+
+/* =========================
+   FORMULARIOS GENERALES
+   ========================= */
+
+.form-group {
+    display: block;
+    margin-bottom: 20px;
+}
+
+.form-group>label:not(:has(input)) {
+    display: block;
+    margin-bottom: 8px;
+
+    color: var(--gray-700);
+
+    font-size: 14px;
+    font-weight: 800;
+}
+
+input,
+textarea,
+select {
+    width: 100%;
+
+    margin-top: 0;
+    padding: 13px 15px;
+
+    border: 1px solid var(--gray-300);
+    border-radius: 11px;
+
+    outline: none;
+
+    background: var(--white);
+    color: var(--gray-900);
+
+    font-size: 15px;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+input {
+    min-height: 48px;
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #aaa4af;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: var(--purple-500);
+
+    box-shadow:
+        0 0 0 4px rgba(112, 39, 168, 0.10);
+}
+
+
+/* =========================
+   GRID DE FORMULARIOS
+   ========================= */
+
+.form-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 0 24px;
+}
+
+.form-grid .form-group {
+    min-width: 0;
+}
+
+
+/* =========================
+   CHECKBOX Y RADIO
+   ========================= */
+
+input[type="checkbox"],
+input[type="radio"] {
+    width: auto;
+    min-width: auto;
+    min-height: auto;
+
+    margin: 0;
+
+    padding: 0;
+
+    accent-color: var(--purple-700);
+
+    box-shadow: none;
+}
+
+
+/* =========================
+   OPCIONES DE SEXO
+   ========================= */
+
+.form-option-group {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+
+    margin-top: 8px;
+}
+
+.form-option {
+    display: inline-flex;
+
+    align-items: center;
+    gap: 8px;
+
+    margin: 0;
+
+    color: var(--gray-700);
+
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.form-option input {
+    flex: 0 0 auto;
+}
+
+
+/* =========================
+   CHECKBOX ESTERILIZADO
+   ========================= */
+
+.form-checkbox {
+    display: inline-flex;
+
+    align-items: center;
+    gap: 9px;
+
+    margin: 5px 0 20px;
+
+    color: var(--gray-700);
+
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.form-checkbox input {
+    flex: 0 0 auto;
+}
+
+
+/* =========================
+   TEXTO DE AYUDA
+   ========================= */
+
+.form-group small {
+    display: block;
+
+    margin-top: 7px;
+
+    color: var(--gray-500);
+
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+
+/* =========================
+   ARCHIVO / FOTO
+   ========================= */
+
+input[type="file"] {
+    padding: 10px;
+
+    background: var(--gray-100);
+
+    cursor: pointer;
+}
+
+input[type="file"]::file-selector-button {
+    margin-right: 10px;
+
+    padding: 8px 14px;
+
+    border: 0;
+    border-radius: 8px;
+
+    background: var(--purple-100);
+    color: var(--purple-700);
+
+    font-weight: 800;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   FORMULARIO DE MASCOTA
+   ========================= */
+
+.mascota-form {
+    max-width: 980px;
+
+    margin: 35px auto 70px;
+    padding: 35px;
+
+    background: var(--white);
+
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+
+    box-shadow: var(--shadow-md);
+}
+
+
+/* =========================
+   TÍTULOS INTERNOS
+   ========================= */
+
+.form-section-title {
+    display: flex;
+
+    align-items: center;
+    gap: 10px;
+
+    margin: 10px 0 22px;
+
+    color: var(--purple-700);
+
+    font-size: 18px;
+    font-weight: 900;
+}
+
+.form-section-title::after {
+    content: "";
+
+    flex: 1;
+
+    height: 1px;
+
+    background: var(--gray-200);
+}
+
+
+/* =========================
+   ACCIONES DEL FORMULARIO
+   ========================= */
+
+.form-actions {
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 12px;
+
+    margin-top: 25px;
+    padding-top: 25px;
+
+    border-top: 1px solid var(--gray-200);
+}
+
+.form-actions .btn {
+    min-width: 150px;
+}
+
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 760px) {
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .mascota-form {
+        margin-top: 25px;
+        padding: 25px 20px;
+    }
+
+    .form-option-group {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .form-actions .btn {
+        width: 100%;
+    }
+}

@@ -1,0 +1,613 @@
+/* =========================================================
+   DIVERPOOL MASCOTAS — MÓDULO MASCOTAS
+   ========================================================= */
+
+/* =========================
+   TARJETAS DE MASCOTAS
+   ========================= */
+
+.mascota-card {
+   display: flex;
+   flex-direction: column;
+   height: 100%;
+}
+
+.mascota-card-content {
+   display: flex;
+   flex-direction: column;
+   flex: 1;
+}
+
+.mascota-actions {
+   display: flex;
+   align-items: center;
+   gap: 10px;
+   margin-top: auto;
+   padding-top: 20px;
+}
+
+.mascota-actions form {
+   flex: 1;
+   margin: 0;
+   padding: 0;
+}
+
+.mascota-actions .btn {
+   width: 100%;
+   min-width: 0;
+   height: 42px;
+
+   display: inline-flex;
+   align-items: center;
+   justify-content: center;
+
+   box-sizing: border-box;
+   white-space: nowrap;
+}
+
+.mascota-info-btn {
+   width: 100%;
+   height: 42px;
+
+   margin-top: 10px;
+
+   display: inline-flex;
+   align-items: center;
+   justify-content: center;
+
+   box-sizing: border-box;
+}
+
+.mascota-photo {
+   width: 150px;
+   height: 150px;
+
+   margin: 0 auto 20px;
+
+   border-radius: 50%;
+   object-fit: cover;
+}
+
+.mascota-photo-preview {
+   margin: 15px 0;
+}
+
+.mascota-photo-preview img {
+   width: 180px;
+   height: 180px;
+
+   object-fit: cover;
+   border-radius: 50%;
+}
+
+
+/* =========================================================
+   DETALLE DE MASCOTA
+   ========================================================= */
+
+.mascota-detail {
+   display: grid;
+   grid-template-columns: 380px 1fr;
+
+   gap: 45px;
+
+   align-items: start;
+
+   margin: 40px auto 80px;
+   padding: 35px;
+
+   background: var(--white);
+
+   border: 1px solid var(--gray-200);
+   border-radius: var(--radius-lg);
+
+   box-shadow: var(--shadow-md);
+}
+
+.mascota-detail-photo {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.mascota-detail-photo img,
+.mascota-detail-placeholder {
+   width: 320px;
+   height: 320px;
+
+   border-radius: 50%;
+   object-fit: cover;
+}
+
+.mascota-detail-placeholder {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+
+   background: var(--purple-100);
+   color: var(--purple-700);
+
+   font-size: 100px;
+}
+
+.mascota-detail-info h2 {
+   margin-bottom: 25px;
+
+   color: var(--gray-900);
+
+   font-size: 32px;
+   font-weight: 900;
+}
+
+.mascota-data {
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
+
+   gap: 15px;
+}
+
+.mascota-data>div {
+   padding: 15px;
+
+   background: var(--gray-100);
+
+   border-radius: var(--radius-sm);
+}
+
+.mascota-data strong {
+   display: block;
+
+   margin-bottom: 4px;
+
+   color: var(--purple-700);
+
+   font-size: 13px;
+}
+
+.mascota-data span {
+   color: var(--gray-900);
+
+   font-size: 15px;
+   font-weight: 700;
+}
+
+.mascota-observaciones {
+   margin-top: 20px;
+   padding: 18px;
+
+   background: var(--purple-50);
+
+   border-radius: var(--radius-sm);
+}
+
+.mascota-observaciones strong {
+   display: block;
+
+   margin-bottom: 8px;
+
+   color: var(--purple-700);
+}
+
+.mascota-observaciones p {
+   color: var(--gray-600);
+
+   line-height: 1.7;
+}
+
+.mascota-detail-actions {
+   display: flex;
+
+   gap: 12px;
+
+   margin-top: 25px;
+}
+
+.mascota-detail-actions .btn {
+   flex: 1;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+   .mascota-detail {
+      grid-template-columns: 1fr;
+      padding: 25px;
+   }
+
+   .mascota-detail-photo img,
+   .mascota-detail-placeholder {
+      width: 240px;
+      height: 240px;
+   }
+}
+
+@media (max-width: 550px) {
+
+   .mascota-data {
+      grid-template-columns: 1fr;
+   }
+
+   .mascota-detail-actions {
+      flex-direction: column;
+   }
+
+   .mascota-actions {
+      flex-direction: column;
+   }
+
+   .mascota-actions .btn,
+   .mascota-actions form {
+      width: 100%;
+   }
+}
+
+/* =========================================================
+   FORMULARIOS DE MASCOTAS
+   ========================================================= */
+
+.mascota-form-page {
+   padding-top: 45px;
+   padding-bottom: 80px;
+}
+
+.mascota-form-card {
+   max-width: 1000px;
+   margin: 30px auto 0;
+   padding: 35px;
+   background: var(--white);
+   border: 1px solid var(--gray-200);
+   border-radius: var(--radius-lg);
+   box-shadow: var(--shadow-md);
+}
+
+.mascota-form-grid {
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
+   gap: 22px 25px;
+}
+
+.mascota-form-card .form-group {
+   margin-bottom: 0;
+}
+
+.mascota-form-card label {
+   color: var(--gray-700);
+   font-weight: 800;
+}
+
+.mascota-form-card input,
+.mascota-form-card select,
+.mascota-form-card textarea {
+   margin-top: 8px;
+}
+
+.mascota-form-card small,
+.form-help {
+   display: block;
+   margin-top: 7px;
+   color: var(--gray-500);
+   font-size: 12px;
+   line-height: 1.5;
+}
+
+.mascota-check {
+   display: flex;
+   align-items: center;
+   gap: 10px;
+   margin-top: 25px;
+   padding: 15px 18px;
+   background: var(--purple-50);
+   border: 1px solid var(--purple-100);
+   border-radius: var(--radius-sm);
+}
+
+.mascota-check label {
+   display: flex;
+   align-items: center;
+   gap: 10px;
+   margin: 0;
+}
+
+.mascota-check input[type="checkbox"] {
+   width: 18px;
+   height: 18px;
+   margin: 0;
+   accent-color: var(--purple-700);
+}
+
+.mascota-check span {
+   color: var(--gray-700);
+   font-weight: 700;
+}
+
+.mascota-photo-section {
+   margin-top: 25px;
+   padding: 22px;
+   background: var(--gray-100);
+   border-radius: var(--radius-md);
+}
+
+.mascota-photo-section>label {
+   display: block;
+   margin-bottom: 12px;
+}
+
+.mascota-photo-current {
+   margin-bottom: 15px;
+}
+
+.mascota-photo-current img {
+   width: 150px;
+   height: 150px;
+   border-radius: 50%;
+   object-fit: cover;
+   border: 5px solid var(--white);
+   box-shadow: var(--shadow-sm);
+}
+
+.mascota-form-actions {
+   display: flex;
+   gap: 15px;
+   margin-top: 30px;
+   padding-top: 25px;
+   border-top: 1px solid var(--gray-200);
+}
+
+.mascota-form-actions .btn {
+   flex: 1;
+}
+
+@media (max-width: 700px) {
+
+   .mascota-form-card {
+      padding: 25px 20px;
+   }
+
+   .mascota-form-grid {
+      grid-template-columns: 1fr;
+   }
+
+   .mascota-form-actions {
+      flex-direction: column;
+   }
+
+}
+
+/* =========================================================
+   TARJETAS DE MASCOTAS
+   ========================================================= */
+
+.mascotas-grid {
+   display: grid;
+   grid-template-columns: repeat(3, minmax(0, 1fr));
+   gap: 24px;
+   align-items: stretch;
+}
+
+.mascota-card {
+   display: flex;
+   flex-direction: column;
+   height: 100%;
+   overflow: hidden;
+
+   background: var(--white);
+   border: 1px solid var(--gray-200);
+   border-radius: var(--radius-lg);
+
+   box-shadow: var(--shadow-sm);
+
+   transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease,
+      border-color 0.2s ease;
+}
+
+.mascota-card:hover {
+   transform: translateY(-4px);
+   border-color: rgba(112, 39, 168, 0.20);
+   box-shadow: var(--shadow-md);
+}
+
+
+/* =========================
+   FOTO
+   ========================= */
+
+.mascota-card-photo {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+
+   min-height: 220px;
+   padding: 25px;
+
+   background: var(--purple-50);
+}
+
+.mascota-card-photo img,
+.mascota-card-photo-placeholder {
+   width: 155px;
+   height: 155px;
+
+   border-radius: 50%;
+
+   object-fit: cover;
+
+   border: 5px solid var(--white);
+
+   box-shadow: var(--shadow-md);
+}
+
+.mascota-card-photo-placeholder {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+
+   background: var(--purple-100);
+   color: var(--purple-700);
+
+   font-size: 58px;
+}
+
+
+/* =========================
+   CONTENIDO
+   ========================= */
+
+.mascota-card-content {
+   display: flex;
+   flex-direction: column;
+   flex: 1;
+
+   padding: 24px;
+}
+
+.mascota-card-content h3 {
+   margin-bottom: 5px;
+
+   color: var(--gray-900);
+
+   font-size: 21px;
+   font-weight: 900;
+}
+
+.mascota-card-species {
+   margin-bottom: 18px;
+
+   color: var(--purple-700);
+
+   font-size: 14px;
+   font-weight: 800;
+}
+
+.mascota-card-data {
+   display: flex;
+   flex-direction: column;
+   gap: 9px;
+
+   margin-bottom: 20px;
+}
+
+.mascota-card-data p {
+   color: var(--gray-600);
+
+   font-size: 13px;
+   line-height: 1.5;
+}
+
+.mascota-card-data strong {
+   color: var(--gray-700);
+}
+
+
+/* =========================
+   BOTÓN VER INFORMACIÓN
+   ========================= */
+
+.mascota-info-btn {
+   width: 100%;
+   min-height: 42px;
+
+   display: inline-flex;
+   align-items: center;
+   justify-content: center;
+
+   margin-top: auto;
+   margin-bottom: 10px;
+
+   padding: 0 15px;
+
+   border: 1px solid var(--purple-700);
+   border-radius: 10px;
+
+   background: var(--white);
+   color: var(--purple-700);
+
+   font-size: 14px;
+   font-weight: 800;
+
+   transition:
+      background 0.2s ease,
+      color 0.2s ease,
+      transform 0.2s ease;
+}
+
+.mascota-info-btn:hover {
+   background: var(--purple-700);
+   color: var(--white);
+}
+
+
+/* =========================
+   EDITAR / ELIMINAR
+   ========================= */
+
+.mascota-actions {
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   gap: 10px;
+
+   margin-top: 0;
+}
+
+.mascota-actions form {
+   width: 100%;
+   margin: 0;
+   padding: 0;
+}
+
+.mascota-actions .btn {
+   width: 100%;
+   min-width: 0;
+   height: 42px;
+
+   display: inline-flex;
+   align-items: center;
+   justify-content: center;
+
+   box-sizing: border-box;
+
+   white-space: nowrap;
+}
+
+.mascota-actions .btn-danger {
+   background: #c0392b;
+   color: var(--white);
+}
+
+.mascota-actions .btn-danger:hover {
+   background: #a93226;
+}
+
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 1000px) {
+
+   .mascotas-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+   }
+}
+
+@media (max-width: 650px) {
+
+   .mascotas-grid {
+      grid-template-columns: 1fr;
+   }
+
+   .mascota-card-photo {
+      min-height: 200px;
+   }
+
+   .mascota-card-photo img,
+   .mascota-card-photo-placeholder {
+      width: 140px;
+      height: 140px;
+   }
+}

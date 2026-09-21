@@ -1,0 +1,232 @@
+/* =========================================================
+   DIVERPOOL MASCOTAS — layout.css
+   ========================================================= */
+
+/* =========================
+   CONTENEDOR
+   ========================= */
+
+.container {
+    width: min(100% - 40px, var(--container));
+    margin-inline: auto;
+}
+
+
+
+
+/* =========================
+   HEADER / NAVBAR
+   ========================= */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    background: rgba(255, 255, 255, 0.96);
+    border-bottom: 1px solid rgba(91, 29, 145, 0.08);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.nav-wrap {
+    min-height: 82px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+
+
+
+/* =========================
+   LOGO
+   ========================= */
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 11px;
+
+    color: var(--purple-900);
+    flex-shrink: 0;
+}
+
+.brand-mark {
+    width: 43px;
+    height: 43px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 13px;
+
+    background: var(--purple-700);
+    color: var(--white);
+
+    font-size: 24px;
+    font-weight: 900;
+
+    box-shadow: 0 7px 18px rgba(91, 29, 145, 0.25);
+}
+
+.brand strong {
+    display: block;
+
+    font-size: 21px;
+    font-weight: 900;
+    line-height: 1;
+
+    letter-spacing: -0.5px;
+}
+
+.brand small {
+    display: block;
+
+    margin-top: 3px;
+
+    font-size: 9px;
+    font-weight: 800;
+
+    letter-spacing: 3px;
+    color: var(--purple-600);
+}
+
+
+
+
+/* =========================
+   NAVEGACIÓN
+   ========================= */
+
+#mainNav {
+    display: flex;
+    align-items: center;
+    gap: 27px;
+}
+
+#mainNav>a:not(.btn) {
+    position: relative;
+
+    color: var(--gray-700);
+
+    font-size: 15px;
+    font-weight: 700;
+
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+#mainNav>a:not(.btn):hover {
+    color: var(--purple-700);
+}
+
+#mainNav>a:not(.btn)::after {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+
+    width: 0;
+    height: 2px;
+
+    background: var(--orange);
+
+    transition: width 0.2s ease;
+}
+
+#mainNav>a:not(.btn):hover::after {
+    width: 100%;
+}
+
+.login-link {
+    color: var(--purple-700) !important;
+}
+
+
+
+
+/* =========================
+   FOOTER
+   ========================= */
+
+.footer {
+    padding-top: 65px;
+
+    background: #21152c;
+    color: var(--white);
+}
+
+.footer-grid {
+    display: grid;
+
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+
+    gap: 45px;
+
+    padding-bottom: 45px;
+}
+
+.footer-brand p {
+    max-width: 280px;
+
+    margin-top: 17px;
+
+    color: rgba(255, 255, 255, 0.58);
+
+    font-size: 14px;
+}
+
+.footer .brand {
+    color: var(--white);
+}
+
+.footer .brand small {
+    color: #c898e5;
+}
+
+.footer .brand-mark {
+    background: var(--purple-600);
+}
+
+.footer h4 {
+    margin-bottom: 17px;
+
+    font-size: 15px;
+    font-weight: 900;
+}
+
+.footer-grid>div:not(.footer-brand) {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-grid a:not(.brand) {
+    color: rgba(255, 255, 255, 0.60);
+
+    font-size: 14px;
+
+    transition: color 0.2s ease;
+}
+
+.footer-grid a:not(.brand):hover {
+    color: var(--white);
+}
+
+.footer-bottom {
+    padding: 22px 0;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.09);
+
+    color: rgba(255, 255, 255, 0.45);
+
+    text-align: center;
+
+    font-size: 12px;
+}

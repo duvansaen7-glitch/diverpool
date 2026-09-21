@@ -28,7 +28,9 @@ require_once __DIR__ . '/../../includes/navbar.php';
 
         <div class="container">
 
-            <!-- Encabezado -->
+            <!-- =====================================================
+                 ENCABEZADO
+                 ===================================================== -->
 
             <div class="section-heading">
 
@@ -51,10 +53,7 @@ require_once __DIR__ . '/../../includes/navbar.php';
 
                 <div>
 
-                    <a
-                        href="<?= SITE_URL ?>/pages/usuario/mascota_crear.php"
-                        class="btn btn-primary"
-                    >
+                    <a href="<?= SITE_URL ?>/pages/usuario/mascota_crear.php" class="btn btn-primary">
                         + Agregar mascota
                     </a>
 
@@ -63,9 +62,11 @@ require_once __DIR__ . '/../../includes/navbar.php';
             </div>
 
 
-            <?php if (!$mascotas): ?>
+            <!-- =====================================================
+                 SIN MASCOTAS
+                 ===================================================== -->
 
-                <!-- Estado vacío -->
+            <?php if (!$mascotas): ?>
 
                 <div class="about-card">
 
@@ -85,10 +86,7 @@ require_once __DIR__ . '/../../includes/navbar.php';
                             nuestros servicios.
                         </p>
 
-                        <a
-                            href="<?= SITE_URL ?>/pages/usuario/mascota_crear.php"
-                            class="btn btn-primary"
-                        >
+                        <a href="<?= SITE_URL ?>/pages/usuario/mascota_crear.php" class="btn btn-primary">
                             Registrar mascota
                         </a>
 
@@ -103,31 +101,39 @@ require_once __DIR__ . '/../../includes/navbar.php';
                 </div>
 
 
+                <!-- =====================================================
+                 LISTADO DE MASCOTAS
+                 ===================================================== -->
+
             <?php else: ?>
 
-                <!-- Lista de mascotas -->
-
-                <div class="service-grid mascotas-grid">
+                <div class="mascotas-grid">
 
                     <?php foreach ($mascotas as $mascota): ?>
 
-                        <article class="service-card mascota-card">
+                        <article class="mascota-card">
 
-                            <!-- Foto -->
 
-                            <div class="mascota-photo">
+                            <!-- =================================================
+                                 FOTO
+                                 ================================================= -->
+
+                            <div class="mascota-card-photo">
 
                                 <?php if (!empty($mascota['foto'])): ?>
 
-                                    <img
-                                        src="<?= SITE_URL . '/' . e($mascota['foto']) ?>"
-                                        alt="Foto de <?= e($mascota['nombre']) ?>"
-                                    >
+                                    <img src="<?= SITE_URL . '/' . e($mascota['foto']) ?>"
+                                        alt="Foto de <?= e($mascota['nombre']) ?>">
 
                                 <?php else: ?>
 
-                                    <div class="mascota-photo-placeholder">
-                                        <?= $mascota['sexo'] === 'hembra' ? '🐶' : '🐕' ?>
+                                    <div class="mascota-card-photo-placeholder">
+
+                                        <?= $mascota['sexo'] === 'hembra'
+                                            ? '🐶'
+                                            : '🐕'
+                                            ?>
+
                                     </div>
 
                                 <?php endif; ?>
@@ -135,70 +141,124 @@ require_once __DIR__ . '/../../includes/navbar.php';
                             </div>
 
 
-                            <!-- Información -->
+                            <!-- =================================================
+                                 INFORMACIÓN
+                                 ================================================= -->
 
-                            <div class="service-body">
+                            <div class="mascota-card-content">
 
                                 <h3>
                                     <?= e($mascota['nombre']) ?>
                                 </h3>
 
-                                <p>
-                                    <strong>
-                                        <?= e($mascota['especie_nombre']) ?>
-                                    </strong>
+
+                                <p class="mascota-card-species">
+
+                                    <?= e($mascota['especie_nombre']) ?>
 
                                     <?php if (!empty($mascota['raza_nombre'])): ?>
 
-                                        · <?= e($mascota['raza_nombre']) ?>
+                                        ·
+                                        <?= e($mascota['raza_nombre']) ?>
 
                                     <?php endif; ?>
+
                                 </p>
 
 
-                                <p>
+                                <div class="mascota-card-data">
 
-                                    <?= $mascota['sexo'] === 'macho'
-                                        ? 'Macho'
-                                        : 'Hembra'
-                                    ?>
+                                    <p>
+
+                                        <strong>
+                                            Sexo:
+                                        </strong>
+
+                                        <?= $mascota['sexo'] === 'macho'
+                                            ? 'Macho'
+                                            : 'Hembra'
+                                            ?>
+
+                                    </p>
+
 
                                     <?php if (!empty($mascota['peso'])): ?>
 
-                                        · <?= e($mascota['peso']) ?> kg
+                                        <p>
+
+                                            <strong>
+                                                Peso:
+                                            </strong>
+
+                                            <?= e($mascota['peso']) ?> kg
+
+                                        </p>
 
                                     <?php endif; ?>
 
-                                </p>
 
+                                    <?php if (!empty($mascota['color'])): ?>
 
-                                <?php if (!empty($mascota['color'])): ?>
+                                        <p>
+
+                                            <strong>
+                                                Color:
+                                            </strong>
+
+                                            <?= e($mascota['color']) ?>
+
+                                        </p>
+
+                                    <?php endif; ?>
+
 
                                     <p>
-                                        Color:
-                                        <?= e($mascota['color']) ?>
+
+                                        <strong>
+                                            Esterilización:
+                                        </strong>
+
+                                        <?= (int) $mascota['esterilizado'] === 1
+                                            ? 'Sí'
+                                            : 'No'
+                                            ?>
+
                                     </p>
 
-                                <?php endif; ?>
+                                </div>
 
 
-                                <?php if ((int) $mascota['esterilizado'] === 1): ?>
+                                <!-- =================================================
+                                     BOTÓN VER INFORMACIÓN
+                                     ================================================= -->
 
-                                    <p>
-                                        Esterilizado
-                                    </p>
+                                <a href="<?= SITE_URL ?>/pages/usuario/mascota_ver.php?id=<?= (int) $mascota['id'] ?>"
+                                    class="mascota-info-btn">
+                                    Ver información
+                                </a>
 
-                                <?php endif; ?>
 
+                                <!-- =================================================
+                                     EDITAR / ELIMINAR
+                                     ================================================= -->
 
-                                <div class="hero-actions">
+                                <div class="mascota-actions">
 
-                                    <a
-                                        href="<?= SITE_URL ?>/pages/usuario/mascota_editar.php?id=<?= (int) $mascota['id'] ?>"
-                                        class="btn btn-outline"
-                                    >
+                                    <a href="<?= SITE_URL ?>/pages/usuario/mascota_editar.php?id=<?= (int) $mascota['id'] ?>"
+                                        class="btn btn-outline">
                                         Editar
                                     </a>
+
+
+                                    <form method="POST"
+                                        action="<?= SITE_URL ?>/pages/usuario/mascota_eliminar.php?id=<?= (int) $mascota['id'] ?>"
+                                        onsubmit="return confirm('¿Está seguro de que desea eliminar esta mascota?');">
+
+                                        <button type="submit" class="btn btn-danger">
+                                            Eliminar
+                                        </button>
+
+                                    </form>
 
                                 </div>
 

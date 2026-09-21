@@ -31,80 +31,120 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $nombre = trim($_POST['nombre'] ?? '');
     $especieId = (int) ($_POST['especie_id'] ?? 0);
-    $razaId = !empty($_POST['raza_id']) ? (int) $_POST['raza_id'] : null;
+    $razaId = !empty($_POST['raza_id'])
+        ? (int) $_POST['raza_id']
+        : null;
+
     $sexo = $_POST['sexo'] ?? '';
-    $fechaNacimiento = trim($_POST['fecha_nacimiento'] ?? '');
+
+    $fechaNacimiento = trim(
+        $_POST['fecha_nacimiento'] ?? ''
+    );
+
     $peso = trim($_POST['peso'] ?? '');
     $color = trim($_POST['color'] ?? '');
     $microchip = trim($_POST['microchip'] ?? '');
-    $esterilizado = isset($_POST['esterilizado']) ? 1 : 0;
-    $observaciones = trim($_POST['observaciones'] ?? '');
 
     /*
-     * Validaciones básicas
+     * Esterilizado es opcional.
+     * Si no se marca, queda en 0.
+     */
+    $esterilizado =
+        (int) ($_POST['esterilizado'] ?? 0) === 1
+        ? 1
+        : 0;
+
+    $observaciones = trim(
+        $_POST['observaciones'] ?? ''
+    );
+
+    /*
+     * =========================
+     * VALIDACIONES
+     * =========================
      */
 
     if ($nombre === '') {
-        $errores[] = 'Ingrese el nombre de la mascota.';
+        $errores[] =
+            'Ingrese el nombre de la mascota.';
     }
 
     if ($especieId <= 0) {
-        $errores[] = 'Seleccione la especie.';
+        $errores[] =
+            'Seleccione la especie.';
     }
 
-    if (!in_array($sexo, ['macho', 'hembra'], true)) {
-        $errores[] = 'Seleccione el sexo de la mascota.';
+    if (
+        !in_array(
+            $sexo,
+            ['macho', 'hembra'],
+            true
+        )
+    ) {
+        $errores[] =
+            'Seleccione el sexo de la mascota.';
     }
 
-    if ($peso !== '' && (!is_numeric($peso) || (float) $peso <= 0)) {
-        $errores[] = 'El peso debe ser un número mayor que cero.';
+    if (
+        $peso !== '' &&
+        (
+            !is_numeric($peso) ||
+            (float) $peso <= 0
+        )
+    ) {
+        $errores[] =
+            'El peso debe ser un número mayor que cero.';
     }
 
     if ($fechaNacimiento !== '') {
 
-        $fechaValida = DateTime::createFromFormat(
-            'Y-m-d',
-            $fechaNacimiento
-        );
+        $fechaValida =
+            DateTime::createFromFormat(
+                'Y-m-d',
+                $fechaNacimiento
+            );
 
         if (
             !$fechaValida ||
-            $fechaValida->format('Y-m-d') !== $fechaNacimiento
+            $fechaValida->format('Y-m-d')
+            !== $fechaNacimiento
         ) {
-            $errores[] = 'La fecha de nacimiento no es válida.';
+            $errores[] =
+                'La fecha de nacimiento no es válida.';
         }
     }
 
     /*
-     * Procesar fotografía
+     * =========================
+     * PROCESAR FOTOGRAFÍA
+     * =========================
      */
 
     if (
         isset($_FILES['foto']) &&
-        $_FILES['foto']['error'] !== UPLOAD_ERR_NO_FILE
+        $_FILES['foto']['error']
+        !== UPLOAD_ERR_NO_FILE
     ) {
 
-        if ($_FILES['foto']['error'] !== UPLOAD_ERR_OK) {
+        if (
+            $_FILES['foto']['error']
+            !== UPLOAD_ERR_OK
+        ) {
 
-            $errores[] = 'No fue posible cargar la fotografía.';
+            $errores[] =
+                'No fue posible cargar la fotografía.';
 
         } else {
 
             $archivo = $_FILES['foto'];
 
-            /*
-             * Máximo 5 MB
-             */
-
-            if ($archivo['size'] > 5 * 1024 * 1024) {
-
+            if (
+                $archivo['size'] >
+                5 * 1024 * 1024
+            ) {
                 $errores[] =
                     'La fotografía no puede superar los 5 MB.';
             }
-
-            /*
-             * Tipos permitidos
-             */
 
             $tiposPermitidos = [
                 'image/jpeg' => 'jpg',
@@ -112,35 +152,36 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 'image/webp' => 'webp'
             ];
 
-            /*
-             * Detectar el tipo real del archivo
-             */
+            $finfo =
+                finfo_open(FILEINFO_MIME_TYPE);
 
-            $finfo = finfo_open(FILEINFO_MIME_TYPE);
-
-            $tipoMime = finfo_file(
-                $finfo,
-                $archivo['tmp_name']
-            );
+            $tipoMime =
+                finfo_file(
+                    $finfo,
+                    $archivo['tmp_name']
+                );
 
             finfo_close($finfo);
 
-            if (!isset($tiposPermitidos[$tipoMime])) {
+            if (
+                !isset(
+                $tiposPermitidos[$tipoMime]
+            )
+            ) {
 
                 $errores[] =
                     'El archivo debe ser una imagen JPG, PNG o WEBP.';
             }
 
-            /*
-             * Guardar archivo
-             */
-
             if (!$errores) {
 
                 $directorioFotos =
-                    __DIR__ . '/../../uploads/mascotas';
+                    __DIR__ .
+                    '/../../uploads/mascotas';
 
-                if (!is_dir($directorioFotos)) {
+                if (
+                    !is_dir($directorioFotos)
+                ) {
 
                     mkdir(
                         $directorioFotos,
@@ -186,7 +227,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     /*
-     * Registrar mascota
+     * =========================
+     * REGISTRAR MASCOTA
+     * =========================
      */
 
     if (!$errores) {
@@ -200,21 +243,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $nombre,
                 $sexo,
                 $fechaNacimiento !== ''
-                    ? $fechaNacimiento
-                    : null,
+                ? $fechaNacimiento
+                : null,
                 $peso !== ''
-                    ? (float) $peso
-                    : null,
+                ? (float) $peso
+                : null,
                 $color !== ''
-                    ? $color
-                    : null,
+                ? $color
+                : null,
                 $microchip !== ''
-                    ? $microchip
-                    : null,
+                ? $microchip
+                : null,
                 $esterilizado,
                 $observaciones !== ''
-                    ? $observaciones
-                    : null,
+                ? $observaciones
+                : null,
                 $fotoRuta
             );
 
@@ -225,11 +268,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         } catch (PDOException $e) {
 
-            /*
-             * Si la base de datos rechaza el microchip
-             */
-
-            if ($e->getCode() === '23000') {
+            if (
+                $e->getCode() === '23000'
+            ) {
 
                 $errores[] =
                     'El microchip ingresado ya está registrado.';
@@ -243,7 +284,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-$pageTitle = 'Registrar mascota | Diverpool Mascotas';
+$pageTitle =
+    'Registrar mascota | Diverpool Mascotas';
 
 $pageDescription =
     'Registre una mascota en su cuenta de Diverpool Mascotas.';
@@ -255,7 +297,7 @@ require_once __DIR__ . '/../../includes/navbar.php';
 
 <main>
 
-    <section class="section">
+    <section class="section mascota-form-page">
 
         <div class="container">
 
@@ -280,7 +322,6 @@ require_once __DIR__ . '/../../includes/navbar.php';
 
             </div>
 
-
             <?php if ($errores): ?>
 
                 <div class="alert alert-error">
@@ -301,17 +342,9 @@ require_once __DIR__ . '/../../includes/navbar.php';
 
             <?php endif; ?>
 
+            <form method="POST" class="mascota-form-card" enctype="multipart/form-data">
 
-            <form
-                method="POST"
-                class="contact-form"
-                enctype="multipart/form-data"
-            >
-
-                <div class="form-grid">
-
-
-                    <!-- Nombre -->
+                <div class="mascota-form-grid">
 
                     <div class="form-group">
 
@@ -319,19 +352,10 @@ require_once __DIR__ . '/../../includes/navbar.php';
                             Nombre de la mascota *
                         </label>
 
-                        <input
-                            type="text"
-                            id="nombre"
-                            name="nombre"
-                            value="<?= e($nombre) ?>"
-                            maxlength="100"
-                            required
-                        >
+                        <input type="text" id="nombre" name="nombre" value="<?= e($nombre) ?>" maxlength="100"
+                            placeholder="Ej. Max" required>
 
                     </div>
-
-
-                    <!-- Foto -->
 
                     <div class="form-group">
 
@@ -339,12 +363,7 @@ require_once __DIR__ . '/../../includes/navbar.php';
                             Foto de la mascota
                         </label>
 
-                        <input
-                            type="file"
-                            id="foto"
-                            name="foto"
-                            accept="image/jpeg,image/png,image/webp"
-                        >
+                        <input type="file" id="foto" name="foto" accept="image/jpeg,image/png,image/webp">
 
                         <small>
                             JPG, PNG o WEBP. Máximo 5 MB.
@@ -352,20 +371,13 @@ require_once __DIR__ . '/../../includes/navbar.php';
 
                     </div>
 
-
-                    <!-- Especie -->
-
                     <div class="form-group">
 
                         <label for="especie_id">
                             Especie *
                         </label>
 
-                        <select
-                            id="especie_id"
-                            name="especie_id"
-                            required
-                        >
+                        <select id="especie_id" name="especie_id" required>
 
                             <option value="">
                                 Seleccione una especie
@@ -373,12 +385,10 @@ require_once __DIR__ . '/../../includes/navbar.php';
 
                             <?php foreach ($especies as $especie): ?>
 
-                                <option
-                                    value="<?= (int) $especie['id'] ?>"
-                                    <?= $especieId === (int) $especie['id']
-                                        ? 'selected'
-                                        : '' ?>
-                                >
+                                <option value="<?= (int) $especie['id'] ?>" <?= $especieId === (int) $especie['id']
+                                       ? 'selected'
+                                       : '' ?>
+                                    >
                                     <?= e($especie['nombre']) ?>
                                 </option>
 
@@ -388,19 +398,13 @@ require_once __DIR__ . '/../../includes/navbar.php';
 
                     </div>
 
-
-                    <!-- Raza -->
-
                     <div class="form-group">
 
                         <label for="raza_id">
                             Raza
                         </label>
 
-                        <select
-                            id="raza_id"
-                            name="raza_id"
-                        >
+                        <select id="raza_id" name="raza_id">
 
                             <option value="">
                                 Seleccione primero una especie
@@ -410,40 +414,29 @@ require_once __DIR__ . '/../../includes/navbar.php';
 
                     </div>
 
-
-                    <!-- Sexo -->
-
                     <div class="form-group">
 
                         <label for="sexo">
                             Sexo *
                         </label>
 
-                        <select
-                            id="sexo"
-                            name="sexo"
-                            required
-                        >
+                        <select id="sexo" name="sexo" required>
 
                             <option value="">
                                 Seleccione
                             </option>
 
-                            <option
-                                value="macho"
-                                <?= $sexo === 'macho'
-                                    ? 'selected'
-                                    : '' ?>
-                            >
+                            <option value="macho" <?= $sexo === 'macho'
+                                ? 'selected'
+                                : '' ?>
+                                >
                                 Macho
                             </option>
 
-                            <option
-                                value="hembra"
-                                <?= $sexo === 'hembra'
-                                    ? 'selected'
-                                    : '' ?>
-                            >
+                            <option value="hembra" <?= $sexo === 'hembra'
+                                ? 'selected'
+                                : '' ?>
+                                >
                                 Hembra
                             </option>
 
@@ -451,26 +444,16 @@ require_once __DIR__ . '/../../includes/navbar.php';
 
                     </div>
 
-
-                    <!-- Fecha -->
-
                     <div class="form-group">
 
                         <label for="fecha_nacimiento">
                             Fecha de nacimiento
                         </label>
 
-                        <input
-                            type="date"
-                            id="fecha_nacimiento"
-                            name="fecha_nacimiento"
-                            value="<?= e($fechaNacimiento) ?>"
-                        >
+                        <input type="date" id="fecha_nacimiento" name="fecha_nacimiento"
+                            value="<?= e($fechaNacimiento) ?>">
 
                     </div>
-
-
-                    <!-- Peso -->
 
                     <div class="form-group">
 
@@ -478,20 +461,10 @@ require_once __DIR__ . '/../../includes/navbar.php';
                             Peso (kg)
                         </label>
 
-                        <input
-                            type="number"
-                            id="peso"
-                            name="peso"
-                            value="<?= e($peso) ?>"
-                            min="0.01"
-                            step="0.01"
-                            placeholder="Ej. 8.50"
-                        >
+                        <input type="number" id="peso" name="peso" value="<?= e($peso) ?>" min="0.01" step="0.01"
+                            placeholder="Ej. 8.50">
 
                     </div>
-
-
-                    <!-- Color -->
 
                     <div class="form-group">
 
@@ -499,19 +472,10 @@ require_once __DIR__ . '/../../includes/navbar.php';
                             Color
                         </label>
 
-                        <input
-                            type="text"
-                            id="color"
-                            name="color"
-                            value="<?= e($color) ?>"
-                            maxlength="80"
-                            placeholder="Ej. Café y blanco"
-                        >
+                        <input type="text" id="color" name="color" value="<?= e($color) ?>" maxlength="80"
+                            placeholder="Ej. Café y blanco">
 
                     </div>
-
-
-                    <!-- Microchip -->
 
                     <div class="form-group">
 
@@ -519,43 +483,31 @@ require_once __DIR__ . '/../../includes/navbar.php';
                             Microchip
                         </label>
 
-                        <input
-                            type="text"
-                            id="microchip"
-                            name="microchip"
-                            value="<?= e($microchip) ?>"
-                            maxlength="100"
-                            placeholder="Opcional"
-                        >
+                        <input type="text" id="microchip" name="microchip" value="<?= e($microchip) ?>" maxlength="100"
+                            placeholder="Opcional">
 
                     </div>
 
                 </div>
 
+                <div class="mascota-check">
 
-                <!-- Esterilizado -->
-
-                <div class="form-group">
+                    <input type="hidden" name="esterilizado" value="0">
 
                     <label>
 
-                        <input
-                            type="checkbox"
-                            name="esterilizado"
-                            value="1"
-                            <?= $esterilizado
-                                ? 'checked'
-                                : '' ?>
+                        <input type="checkbox" name="esterilizado" value="1" <?= $esterilizado
+                            ? 'checked'
+                            : '' ?>
                         >
 
-                        La mascota está esterilizada
+                        <span>
+                            La mascota está esterilizada
+                        </span>
 
                     </label>
 
                 </div>
-
-
-                <!-- Observaciones -->
 
                 <div class="form-group">
 
@@ -563,31 +515,18 @@ require_once __DIR__ . '/../../includes/navbar.php';
                         Observaciones
                     </label>
 
-                    <textarea
-                        id="observaciones"
-                        name="observaciones"
-                        rows="5"
-                        placeholder="Información adicional sobre su mascota..."
-                    ><?= e($observaciones) ?></textarea>
+                    <textarea id="observaciones" name="observaciones" rows="5"
+                        placeholder="Información adicional sobre su mascota..."><?= e($observaciones) ?></textarea>
 
                 </div>
 
+                <div class="mascota-form-actions">
 
-                <!-- Botones -->
-
-                <div class="hero-actions">
-
-                    <button
-                        type="submit"
-                        class="btn btn-primary"
-                    >
+                    <button type="submit" class="btn btn-primary">
                         Registrar mascota
                     </button>
 
-                    <a
-                        href="<?= SITE_URL ?>/pages/usuario/mascotas.php"
-                        class="btn btn-outline"
-                    >
+                    <a href="<?= SITE_URL ?>/pages/usuario/mascotas.php" class="btn btn-outline">
                         Cancelar
                     </a>
 

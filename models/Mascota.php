@@ -104,9 +104,8 @@ class Mascota
 
         return $mascota ?: null;
     }
-
     /**
-     * Crear una mascota.
+     * funcion crear una mascota perteneciente al usuario.
      */
     public function crear(
         int $usuarioId,
@@ -119,8 +118,10 @@ class Mascota
         ?string $color = null,
         ?string $microchip = null,
         bool $esterilizado = false,
-        ?string $observaciones = null
+        ?string $observaciones = null,
+        ?string $foto = null
     ): int {
+
         $sql = "
             INSERT INTO mascotas (
                 usuario_id,
@@ -132,6 +133,7 @@ class Mascota
                 peso,
                 color,
                 microchip,
+                foto,
                 esterilizado,
                 observaciones
             )
@@ -145,6 +147,7 @@ class Mascota
                 :peso,
                 :color,
                 :microchip,
+                :foto,
                 :esterilizado,
                 :observaciones
             )
@@ -162,13 +165,13 @@ class Mascota
             ':peso' => $peso,
             ':color' => $color,
             ':microchip' => $microchip,
+            ':foto' => $foto,
             ':esterilizado' => $esterilizado ? 1 : 0,
             ':observaciones' => $observaciones
         ]);
 
         return (int) $this->db->lastInsertId();
     }
-
     /**
      * Actualizar una mascota perteneciente al usuario.
      */
@@ -184,8 +187,10 @@ class Mascota
         ?string $color = null,
         ?string $microchip = null,
         bool $esterilizado = false,
-        ?string $observaciones = null
+        ?string $observaciones = null,
+        ?string $foto = null
     ): bool {
+
         $sql = "
             UPDATE mascotas
             SET
@@ -197,11 +202,12 @@ class Mascota
                 peso = :peso,
                 color = :color,
                 microchip = :microchip,
+                foto = :foto,
                 esterilizado = :esterilizado,
                 observaciones = :observaciones
             WHERE id = :id
-              AND usuario_id = :usuario_id
-              AND estado = 1
+            AND usuario_id = :usuario_id
+            AND estado = 1
         ";
 
         $stmt = $this->db->prepare($sql);
@@ -217,6 +223,7 @@ class Mascota
             ':peso' => $peso,
             ':color' => $color,
             ':microchip' => $microchip,
+            ':foto' => $foto,
             ':esterilizado' => $esterilizado ? 1 : 0,
             ':observaciones' => $observaciones
         ]);

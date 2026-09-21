@@ -1,0 +1,92 @@
+        border-right: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, .12);
+    }
+
+    .stats-grid>div:nth-child(3),
+    .stats-grid>div:nth-child(4) {
+        border-bottom: 0;
+    }
+
+    .steps-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-card {
+        padding: 32px 24px;
+        border-radius: 23px;
+    }
+
+    .about-pets {
+        min-height: 220px;
+        font-size: 67px;
+    }
+
+    .contact-grid {
+        gap: 30px;
+    }
+}
+
+@media (max-width: 430px) {
+
+    .hero-copy h1 {
+        font-size: 37px;
+    }
+
+    .hero-art {
+        min-height: 320px;
+        transform: scale(.82);
+        margin-left: -25px;
+        margin-right: -25px;
+    }
+
+    .pet-card {
+        width: 190px;
+    }
+
+    .pet-card.dog {
+        top: 55px;
+    }
+
+    .pet-card.cat {
+        bottom: 45px;
+    }
+
+    .hero-note {
+        font-size: 11px;
+    }
+
+    .trust-row {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.mascota-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: auto;
+}
+
+.mascota-actions form {
+    margin: 0;
+    padding: 0;
+}
+
+.mascota-actions .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 90px;
+    height: 40px;
+    box-sizing: border-box;
+}
+
+.mascota-card {
+    display: flex;
+    flex-direction: column;
+}

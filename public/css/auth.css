@@ -1,0 +1,74 @@
+/* =========================================================
+   DIVERPOOL MASCOTAS — auth.css
+   ========================================================= */
+
+/* =========================
+   LOGIN / REGISTRO
+   ========================= */
+
+.auth-page {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px;
+
+    background:
+        radial-gradient(circle at 15% 20%,
+            rgba(255, 122, 24, 0.12),
+            transparent 25%),
+        linear-gradient(135deg,
+            #f8f3fb,
+            #eee5f6);
+}
+
+.auth-card {
+    width: min(100%, 460px);
+
+    padding: 42px;
+
+    background: var(--white);
+
+    border: 1px solid rgba(91, 29, 145, 0.10);
+    border-radius: var(--radius-lg);
+
+    box-shadow: var(--shadow-lg);
+}
+
+.auth-brand {
+    margin-bottom: 35px;
+}
+
+.auth-card h1 {
+    margin-bottom: 8px;
+
+    color: var(--gray-900);
+
+    font-size: 30px;
+    line-height: 1.15;
+
+    font-weight: 900;
+}
+
+.auth-card>p {
+    margin-bottom: 28px;
+
+    color: var(--gray-600);
+
+    font-size: 14px;
+}
+
+.auth-footer {
+    margin-top: 22px !important;
+    margin-bottom: 0 !important;
+
+    text-align: center;
+}
+
+.auth-footer a {
+    color: var(--purple-700);
+
+    font-weight: 900;
+}
