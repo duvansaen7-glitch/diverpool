@@ -28,7 +28,7 @@ $pageDescription = $pageDescription ?? SITE_DESCRIPTION;
 
     <link
         rel="stylesheet"
-        href="public/css/style.css"
+        href="<?= SITE_URL ?>/public/css/style.css"
     >
 
     <link
@@ -50,4 +50,3 @@ $pageDescription = $pageDescription ?? SITE_DESCRIPTION;
 </head>
 
 <body>
-    

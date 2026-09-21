@@ -10,7 +10,7 @@ require_once __DIR__ . '/funciones.php';
 
         <a
             class="brand"
-            href="index.php"
+            href="<?= SITE_URL ?>/index.php"
             aria-label="Diverpool Mascotas"
         >
 
@@ -34,23 +34,23 @@ require_once __DIR__ . '/funciones.php';
 
         <nav id="mainNav">
 
-            <a href="index.php">
+            <a href="<?= SITE_URL ?>/index.php">
                 Inicio
             </a>
 
-            <a href="index.php#servicios">
+            <a href="<?= SITE_URL ?>/pages/public/servicios.php">
                 Servicios
             </a>
 
-            <a href="index.php#como-funciona">
+            <a href="<?= SITE_URL ?>/pages/public/como-funciona.php">
                 Cómo funciona
             </a>
 
-            <a href="index.php#nosotros">
+            <a href="<?= SITE_URL ?>/pages/public/nosotros.php">
                 Nosotros
             </a>
 
-            <a href="index.php#contacto">
+            <a href="<?= SITE_URL ?>/pages/public/contacto.php">
                 Contacto
             </a>
 
@@ -65,7 +65,7 @@ require_once __DIR__ . '/funciones.php';
 
                 <?php if (tieneRol('Cliente')): ?>
 
-                    <a href="#">
+                    <a href="<?= SITE_URL ?>/pages/usuario/mascotas.php">
                         Mis mascotas
                     </a>
 
@@ -89,7 +89,7 @@ require_once __DIR__ . '/funciones.php';
 
                 <a
                     class="login-link"
-                    href="logout.php"
+                    href="<?= SITE_URL ?>/logout.php"
                 >
                     Cerrar sesión
                 </a>
@@ -98,14 +98,14 @@ require_once __DIR__ . '/funciones.php';
 
                 <a
                     class="login-link"
-                    href="login.php"
+                    href="<?= SITE_URL ?>/login.php"
                 >
                     Iniciar sesión
                 </a>
 
                 <a
                     class="btn btn-primary btn-small"
-                    href="registro.php"
+                    href="<?= SITE_URL ?>/registro.php"
                 >
                     Registrarse
                 </a>
