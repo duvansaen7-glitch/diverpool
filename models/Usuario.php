@@ -39,6 +39,7 @@ class Usuario
         ";
 
         $stmt = $this->db->prepare($sql);
+
         $stmt->execute([
             ':correo' => $correo
         ]);
@@ -74,6 +75,7 @@ class Usuario
         ";
 
         $stmt = $this->db->prepare($sql);
+
         $stmt->execute([
             ':id' => $id
         ]);
@@ -110,10 +112,58 @@ class Usuario
     }
 
     /**
+     * Obtener todos los roles activos.
+     */
+    public function obtenerRoles(): array
+    {
+        $sql = "
+            SELECT
+                id,
+                nombre,
+                descripcion
+            FROM roles
+            WHERE estado = 1
+            ORDER BY id
+        ";
+
+        $stmt = $this->db->query($sql);
+
+        return $stmt->fetchAll();
+    }
+
+    /**
+     * Obtener todos los usuarios.
+     */
+    public function obtenerTodos(): array
+    {
+        $sql = "
+            SELECT
+                u.id,
+                u.rol_id,
+                u.nombres,
+                u.apellidos,
+                u.correo,
+                u.telefono,
+                u.documento,
+                u.estado,
+                u.ultimo_acceso,
+                u.created_at,
+                u.updated_at,
+                r.nombre AS rol_nombre
+            FROM usuarios u
+            INNER JOIN roles r ON r.id = u.rol_id
+            ORDER BY u.created_at DESC
+        ";
+
+        $stmt = $this->db->query($sql);
+
+        return $stmt->fetchAll();
+    }
+
+    /**
      * Crear un nuevo usuario.
      *
-     * El password recibido debe ser texto plano.
-     * Aquí se transforma mediante password_hash().
+     * La contraseña recibida se almacena utilizando password_hash().
      */
     public function crear(
         int $rolId,
@@ -124,7 +174,10 @@ class Usuario
         ?string $telefono = null,
         ?string $documento = null
     ): int {
-        $passwordHash = password_hash($password, PASSWORD_DEFAULT);
+        $passwordHash = password_hash(
+            $password,
+            PASSWORD_DEFAULT
+        );
 
         $sql = "
             INSERT INTO usuarios (
@@ -169,7 +222,10 @@ class Usuario
         string $password,
         string $passwordHash
     ): bool {
-        return password_verify($password, $passwordHash);
+        return password_verify(
+            $password,
+            $passwordHash
+        );
     }
 
     /**

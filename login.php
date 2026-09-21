@@ -78,7 +78,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 /*
                  * Ir al inicio.
                  */
-                redirect('index.php');
+                if ($usuario['rol_nombre'] === 'Administrador') {
+                    redirect(SITE_URL . '/pages/admin/dashboard.php');
+                }
+
+                if ($usuario['rol_nombre'] === 'Profesional') {
+                    redirect(SITE_URL . '/pages/profesional/dashboard.php');
+                }
+
+                redirect(SITE_URL . '/pages/usuario/dashboard.php');
             }
 
         } catch (Throwable $e) {
@@ -102,17 +110,11 @@ $pageTitle = 'Iniciar sesión | Diverpool Mascotas';
 
     <meta charset="utf-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title><?= e($pageTitle) ?></title>
 
-    <link
-        rel="stylesheet"
-        href="public/css/style.css"
-    >
+    <link rel="stylesheet" href="public/css/style.css">
 
 </head>
 
@@ -120,11 +122,7 @@ $pageTitle = 'Iniciar sesión | Diverpool Mascotas';
 
     <main class="auth-card">
 
-        <a
-            class="brand auth-brand"
-            href="index.php"
-            aria-label="Diverpool Mascotas"
-        >
+        <a class="brand auth-brand" href="index.php" aria-label="Diverpool Mascotas">
 
             <span class="brand-mark">D</span>
 
@@ -147,10 +145,7 @@ $pageTitle = 'Iniciar sesión | Diverpool Mascotas';
 
         <?php if (!empty($errores)): ?>
 
-            <div
-                class="form-errors"
-                role="alert"
-            >
+            <div class="form-errors" role="alert">
 
                 <?php foreach ($errores as $error): ?>
 
@@ -162,23 +157,14 @@ $pageTitle = 'Iniciar sesión | Diverpool Mascotas';
 
         <?php endif; ?>
 
-        <form
-            method="POST"
-            action="login.php"
-        >
+        <form method="POST" action="login.php">
 
             <label>
 
                 Correo electrónico
 
-                <input
-                    type="email"
-                    name="correo"
-                    value="<?= e($correo) ?>"
-                    maxlength="150"
-                    autocomplete="email"
-                    required
-                >
+                <input type="email" name="correo" value="<?= e($correo) ?>" maxlength="150" autocomplete="email"
+                    required>
 
             </label>
 
@@ -186,19 +172,11 @@ $pageTitle = 'Iniciar sesión | Diverpool Mascotas';
 
                 Contraseña
 
-                <input
-                    type="password"
-                    name="password"
-                    autocomplete="current-password"
-                    required
-                >
+                <input type="password" name="password" autocomplete="current-password" required>
 
             </label>
 
-            <button
-                class="btn btn-primary"
-                type="submit"
-            >
+            <button class="btn btn-primary" type="submit">
                 Iniciar sesión
             </button>
 
