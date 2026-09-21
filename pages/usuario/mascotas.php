@@ -4,56 +4,38 @@ require_once __DIR__ . '/../../config/config.php';
 require_once __DIR__ . '/../../models/Mascota.php';
 require_once __DIR__ . '/../../includes/funciones.php';
 
-/*
- * Esta página requiere que el usuario haya iniciado sesión.
- */
 if (!usuarioAutenticado()) {
-    redirect('../../login.php');
+    redirect(SITE_URL . '/login.php');
 }
 
 $usuarioId = usuarioId();
 
 $mascotaModel = new Mascota();
+
 $mascotas = $mascotaModel->obtenerPorUsuario($usuarioId);
 
 $pageTitle = 'Mis mascotas | Diverpool Mascotas';
+$pageDescription = 'Gestione las mascotas asociadas a su cuenta.';
+
+require_once __DIR__ . '/../../includes/header.php';
+require_once __DIR__ . '/../../includes/navbar.php';
 
 ?>
-<!doctype html>
-<html lang="es">
 
-<head>
+<main>
 
-    <meta charset="utf-8">
+    <section class="section">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1"
-    >
+        <div class="container">
 
-    <title><?= e($pageTitle) ?></title>
+            <!-- Encabezado -->
 
-    <link
-        rel="stylesheet"
-        href="../../public/css/style.css"
-    >
+            <div class="section-heading">
 
-</head>
+                <div>
 
-<body>
-
-    <?php require_once __DIR__ . '/../../includes/navbar.php'; ?>
-
-    <main>
-
-        <section class="section">
-
-            <div class="container">
-
-                <div class="section-heading">
-
-                    <span class="section-eyebrow">
-                        Mi cuenta
+                    <span class="eyebrow">
+                        MI CUENTA
                     </span>
 
                     <h1>
@@ -61,118 +43,179 @@ $pageTitle = 'Mis mascotas | Diverpool Mascotas';
                     </h1>
 
                     <p>
-                        Consulte y gestione las mascotas asociadas
-                        a su cuenta.
+                        Administre la información de sus mascotas
+                        y manténgala siempre actualizada.
                     </p>
 
                 </div>
 
-                <?php if (empty($mascotas)): ?>
+                <div>
 
-                    <div class="auth-card">
+                    <a
+                        href="<?= SITE_URL ?>/pages/usuario/mascota_crear.php"
+                        class="btn btn-primary"
+                    >
+                        + Agregar mascota
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <?php if (!$mascotas): ?>
+
+                <!-- Estado vacío -->
+
+                <div class="about-card">
+
+                    <div>
+
+                        <span class="eyebrow">
+                            TODAVÍA NO TIENE MASCOTAS
+                        </span>
 
                         <h2>
-                            Aún no tiene mascotas registradas
+                            Registre su primera mascota
                         </h2>
 
                         <p>
-                            Cuando registre una mascota,
-                            aparecerá aquí junto con su información.
+                            Agregue la información de su mascota para
+                            poder utilizarla posteriormente al solicitar
+                            nuestros servicios.
                         </p>
 
                         <a
+                            href="<?= SITE_URL ?>/pages/usuario/mascota_crear.php"
                             class="btn btn-primary"
-                            href="mascota_crear.php"
                         >
                             Registrar mascota
                         </a>
 
                     </div>
 
-                <?php else: ?>
+                    <div class="about-pets">
+                        🐶
+                        <span>♡</span>
+                        🐱
+                    </div>
 
-                    <div class="services-grid">
+                </div>
 
-                        <?php foreach ($mascotas as $mascota): ?>
 
-                            <article class="service-card">
+            <?php else: ?>
 
-                                <div class="service-icon">
-                                    <?= $mascota['especie_nombre'] === 'Gato'
-                                        ? '🐱'
-                                        : '🐶' ?>
-                                </div>
+                <!-- Lista de mascotas -->
 
-                                <h2>
+                <div class="service-grid mascotas-grid">
+
+                    <?php foreach ($mascotas as $mascota): ?>
+
+                        <article class="service-card mascota-card">
+
+                            <!-- Foto -->
+
+                            <div class="mascota-photo">
+
+                                <?php if (!empty($mascota['foto'])): ?>
+
+                                    <img
+                                        src="<?= SITE_URL . '/' . e($mascota['foto']) ?>"
+                                        alt="Foto de <?= e($mascota['nombre']) ?>"
+                                    >
+
+                                <?php else: ?>
+
+                                    <div class="mascota-photo-placeholder">
+                                        <?= $mascota['sexo'] === 'hembra' ? '🐶' : '🐕' ?>
+                                    </div>
+
+                                <?php endif; ?>
+
+                            </div>
+
+
+                            <!-- Información -->
+
+                            <div class="service-body">
+
+                                <h3>
                                     <?= e($mascota['nombre']) ?>
-                                </h2>
+                                </h3>
 
                                 <p>
-                                    <strong>Especie:</strong>
-                                    <?= e($mascota['especie_nombre']) ?>
+                                    <strong>
+                                        <?= e($mascota['especie_nombre']) ?>
+                                    </strong>
+
+                                    <?php if (!empty($mascota['raza_nombre'])): ?>
+
+                                        · <?= e($mascota['raza_nombre']) ?>
+
+                                    <?php endif; ?>
                                 </p>
 
-                                <?php if (!empty($mascota['raza_nombre'])): ?>
+
+                                <p>
+
+                                    <?= $mascota['sexo'] === 'macho'
+                                        ? 'Macho'
+                                        : 'Hembra'
+                                    ?>
+
+                                    <?php if (!empty($mascota['peso'])): ?>
+
+                                        · <?= e($mascota['peso']) ?> kg
+
+                                    <?php endif; ?>
+
+                                </p>
+
+
+                                <?php if (!empty($mascota['color'])): ?>
 
                                     <p>
-                                        <strong>Raza:</strong>
-                                        <?= e($mascota['raza_nombre']) ?>
+                                        Color:
+                                        <?= e($mascota['color']) ?>
                                     </p>
 
                                 <?php endif; ?>
 
-                                <p>
-                                    <strong>Sexo:</strong>
-                                    <?= e(ucfirst($mascota['sexo'])) ?>
-                                </p>
 
-                                <?php if (!empty($mascota['peso'])): ?>
+                                <?php if ((int) $mascota['esterilizado'] === 1): ?>
 
                                     <p>
-                                        <strong>Peso:</strong>
-                                        <?= e($mascota['peso']) ?> kg
+                                        Esterilizado
                                     </p>
 
                                 <?php endif; ?>
 
-                                <div class="service-actions">
+
+                                <div class="hero-actions">
 
                                     <a
-                                        class="btn btn-secondary"
-                                        href="mascota_editar.php?id=<?= (int) $mascota['id'] ?>"
+                                        href="<?= SITE_URL ?>/pages/usuario/mascota_editar.php?id=<?= (int) $mascota['id'] ?>"
+                                        class="btn btn-outline"
                                     >
                                         Editar
                                     </a>
 
                                 </div>
 
-                            </article>
+                            </div>
 
-                        <?php endforeach; ?>
+                        </article>
 
-                    </div>
+                    <?php endforeach; ?>
 
-                    <div class="section-actions">
+                </div>
 
-                        <a
-                            class="btn btn-primary"
-                            href="mascota_crear.php"
-                        >
-                            Registrar otra mascota
-                        </a>
+            <?php endif; ?>
 
-                    </div>
+        </div>
 
-                <?php endif; ?>
+    </section>
 
-            </div>
+</main>
 
-        </section>
-
-    </main>
-
-    <?php require_once __DIR__ . '/../../includes/footer.php'; ?>
-
-</body>
-
-</html>
+<?php require_once __DIR__ . '/../../includes/footer.php'; ?>
