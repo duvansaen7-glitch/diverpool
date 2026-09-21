@@ -27,6 +27,7 @@ class Usuario
                 u.telefono,
                 u.password_hash,
                 u.documento,
+                u.foto_perfil,
                 u.estado,
                 u.ultimo_acceso,
                 u.created_at,
@@ -63,6 +64,7 @@ class Usuario
                 u.correo,
                 u.telefono,
                 u.documento,
+                u.foto_perfil,
                 u.estado,
                 u.ultimo_acceso,
                 u.created_at,
@@ -145,6 +147,7 @@ class Usuario
                 u.correo,
                 u.telefono,
                 u.documento,
+                u.foto_perfil,
                 u.estado,
                 u.ultimo_acceso,
                 u.created_at,
@@ -213,6 +216,58 @@ class Usuario
         ]);
 
         return (int) $this->db->lastInsertId();
+    }
+
+    /**
+     * Actualizar los datos básicos del perfil.
+     */
+    public function actualizarPerfil(
+        int $id,
+        string $nombres,
+        string $apellidos,
+        ?string $telefono,
+        ?string $documento
+    ): bool {
+        $sql = "
+            UPDATE usuarios
+            SET
+                nombres = :nombres,
+                apellidos = :apellidos,
+                telefono = :telefono,
+                documento = :documento
+            WHERE id = :id
+        ";
+
+        $stmt = $this->db->prepare($sql);
+
+        return $stmt->execute([
+            ':id' => $id,
+            ':nombres' => $nombres,
+            ':apellidos' => $apellidos,
+            ':telefono' => $telefono,
+            ':documento' => $documento
+        ]);
+    }
+
+    /**
+     * Actualizar la foto de perfil.
+     */
+    public function actualizarFotoPerfil(
+        int $id,
+        ?string $fotoPerfil
+    ): bool {
+        $sql = "
+            UPDATE usuarios
+            SET foto_perfil = :foto_perfil
+            WHERE id = :id
+        ";
+
+        $stmt = $this->db->prepare($sql);
+
+        return $stmt->execute([
+            ':id' => $id,
+            ':foto_perfil' => $fotoPerfil
+        ]);
     }
 
     /**

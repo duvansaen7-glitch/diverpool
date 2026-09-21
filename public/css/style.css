@@ -15,10 +15,11 @@
 @import url("mascotas.css");
 @import url("home.css");
 @import url("home-responsive.css");
-@import url("admin.css");
 @import url("responsive.css");
-
-
+@import url("admin.css");
+@import url("usuario.css");
+@import url("perfil.css");
+@import url("perfil-editar.css");
 /* =========================
    VARIABLES
    ========================= */

@@ -1,0 +1,217 @@
+/* =========================================
+   EDITAR PERFIL
+========================================= */
+
+.profile-edit-card {
+    max-width: 900px;
+    margin: 35px auto 60px;
+
+    background: #ffffff;
+
+    border: 1px solid #e8e1ed;
+    border-radius: 20px;
+
+    box-shadow: 0 8px 25px rgba(40, 20, 50, 0.07);
+
+    overflow: hidden;
+}
+
+
+/* =========================================
+   FOTO
+========================================= */
+
+.profile-photo-section {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+
+    padding: 30px;
+
+    background: #faf7fd;
+
+    border-bottom: 1px solid #eee7f2;
+}
+
+.profile-photo-preview {
+    width: 110px;
+    height: 110px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    border-radius: 50%;
+
+    background: #6a1b9a;
+    color: #ffffff;
+
+    font-size: 38px;
+    font-weight: 800;
+
+    box-shadow: 0 8px 20px rgba(106, 27, 154, 0.22);
+}
+
+.profile-photo-preview img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+.profile-photo-section h2 {
+    margin: 0 0 6px;
+
+    font-size: 20px;
+}
+
+.profile-photo-section p {
+    margin: 0 0 15px;
+
+    color: #74677c;
+}
+
+
+/* Ocultar input real */
+
+.photo-upload-button {
+    position: relative;
+    overflow: hidden;
+
+    cursor: pointer;
+}
+
+.photo-upload-button input[type="file"] {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    opacity: 0;
+
+    cursor: pointer;
+}
+
+
+/* =========================================
+   FORMULARIO
+========================================= */
+
+.profile-form-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 22px;
+
+    padding: 30px;
+}
+
+.profile-form-grid .form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-form-grid label {
+    margin-bottom: 8px;
+
+    color: #3b2b43;
+
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.profile-form-grid input {
+    width: 100%;
+
+    padding: 13px 15px;
+
+    border: 1px solid #dcd2e2;
+    border-radius: 10px;
+
+    background: #ffffff;
+
+    color: #24182d;
+
+    font-size: 15px;
+
+    box-sizing: border-box;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.profile-form-grid input:focus {
+    outline: none;
+
+    border-color: #6a1b9a;
+
+    box-shadow:
+        0 0 0 3px rgba(106, 27, 154, 0.10);
+}
+
+.profile-form-grid input:disabled {
+    background: #f5f2f6;
+    color: #756a7c;
+    cursor: not-allowed;
+}
+
+.profile-form-grid small {
+    margin-top: 6px;
+
+    color: #7b7082;
+
+    font-size: 12px;
+}
+
+
+/* =========================================
+   ACCIONES
+========================================= */
+
+.profile-edit-actions {
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 12px;
+
+    padding: 0 30px 30px;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 700px) {
+
+    .profile-photo-section {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .profile-form-grid {
+        grid-template-columns: 1fr;
+
+        padding: 22px;
+    }
+
+    .profile-edit-actions {
+        flex-direction: column;
+
+        padding: 0 22px 22px;
+    }
+
+    .profile-edit-actions .btn {
+        width: 100%;
+    }
+
+}

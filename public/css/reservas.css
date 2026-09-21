@@ -1,0 +1,234 @@
+/* =========================================
+   RESERVAS DEL CLIENTE
+========================================= */
+
+.reservas-list {
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 24px;
+
+    margin-top: 35px;
+    margin-bottom: 60px;
+}
+
+.reserva-card {
+    background: #ffffff;
+
+    border: 1px solid #e8e1ed;
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    box-shadow: 0 6px 20px rgba(40, 20, 50, 0.06);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.reserva-card:hover {
+    transform: translateY(-4px);
+
+    border-color: rgba(106, 27, 154, 0.25);
+
+    box-shadow:
+        0 12px 28px rgba(106, 27, 154, 0.12);
+}
+
+
+/* Encabezado */
+
+.reserva-card-header {
+    display: flex;
+
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 24px;
+
+    background: #faf7fd;
+
+    border-bottom: 1px solid #eee7f2;
+}
+
+.reserva-card-header h2 {
+    margin: 4px 0 0;
+
+    color: #24182d;
+
+    font-size: 20px;
+}
+
+
+/* Información */
+
+.reserva-card-body {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 20px;
+
+    padding: 24px;
+}
+
+.reserva-info {
+    display: flex;
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+.reserva-label {
+    color: #796d81;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.reserva-info strong {
+    color: #291d32;
+
+    font-size: 15px;
+}
+
+
+/* Estados */
+
+.reserva-estado {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 7px 12px;
+
+    border-radius: 999px;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    white-space: nowrap;
+}
+
+.reserva-estado.pendiente {
+    background: #fff4d6;
+    color: #9a6700;
+}
+
+.reserva-estado.confirmada {
+    background: #e5f7eb;
+    color: #237a3b;
+}
+
+.reserva-estado.proceso {
+    background: #e4f0ff;
+    color: #2563a6;
+}
+
+.reserva-estado.completada {
+    background: #e8e5f7;
+    color: #57459b;
+}
+
+.reserva-estado.cancelada {
+    background: #fde8e8;
+    color: #a52b2b;
+}
+
+
+/* Pie */
+
+.reserva-card-footer {
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    padding: 18px 24px;
+
+    border-top: 1px solid #eee7f2;
+}
+
+
+/* Estado vacío */
+
+.empty-state {
+    max-width: 650px;
+
+    margin: 50px auto 70px;
+
+    padding: 50px 30px;
+
+    text-align: center;
+
+    background: #ffffff;
+
+    border: 1px solid #e8e1ed;
+    border-radius: 20px;
+
+    box-shadow: 0 8px 25px rgba(40, 20, 50, 0.06);
+}
+
+.empty-state-icon {
+    font-size: 42px;
+
+    margin-bottom: 15px;
+}
+
+.empty-state h2 {
+    margin: 0 0 10px;
+
+    color: #24182d;
+}
+
+.empty-state p {
+    max-width: 500px;
+
+    margin: 0 auto 25px;
+
+    color: #74677c;
+
+    line-height: 1.6;
+}
+
+
+/* Responsive */
+
+@media (max-width: 850px) {
+
+    .reservas-list {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .reserva-card-body {
+        grid-template-columns: 1fr;
+    }
+
+    .reserva-card-header {
+        flex-direction: column;
+    }
+
+    .reserva-card-footer {
+        flex-direction: column;
+    }
+
+    .reserva-card-footer .btn {
+        width: 100%;
+        text-align: center;
+    }
+
+}

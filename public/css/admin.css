@@ -171,3 +171,108 @@
 
 }
 
+/* =========================================
+   BOTONES DEL PANEL ADMINISTRATIVO
+========================================= */
+
+.admin-dashboard .dashboard-card .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 180px;
+    padding: 13px 24px;
+
+    background: #ffffff;
+    color: #6a1b9a;
+
+    border: 2px solid #6a1b9a;
+    border-radius: 12px;
+
+    font-size: 15px;
+    font-weight: 800;
+    text-decoration: none;
+
+    cursor: pointer;
+
+    box-shadow: 0 4px 12px rgba(106, 27, 154, 0.10);
+
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+/* =========================================
+   BOTONES DEL DASHBOARD ADMINISTRATIVO
+========================================= */
+
+.service-card .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 190px;
+    padding: 13px 24px;
+
+    background: #ffffff;
+    color: #6a1b9a;
+
+    border: 2px solid #6a1b9a;
+    border-radius: 12px;
+
+    font-size: 15px;
+    font-weight: 800;
+    line-height: 1.2;
+
+    text-decoration: none;
+    cursor: pointer;
+
+    box-shadow: 0 4px 12px rgba(106, 27, 154, 0.10);
+
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+/* =========================================
+   AL PASAR EL CURSOR
+========================================= */
+
+.service-card .btn-primary:hover {
+    background: #6a1b9a;
+    color: #ffffff;
+    border-color: #6a1b9a;
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 24px rgba(106, 27, 154, 0.25);
+}
+
+
+/* =========================================
+   AL PRESIONAR
+========================================= */
+
+.service-card .btn-primary:active {
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 5px 12px rgba(106, 27, 154, 0.18);
+}
+
+
+/* =========================================
+   NAVEGACIÓN CON TECLADO
+========================================= */
+
+.service-card .btn-primary:focus-visible {
+    outline: 3px solid rgba(106, 27, 154, 0.25);
+    outline-offset: 3px;
+}

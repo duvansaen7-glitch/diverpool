@@ -72,3 +72,38 @@
 
     font-weight: 900;
 }
+
+/* ================================
+   BOTÓN DE INICIO DE SESIÓN
+================================ */
+
+.auth-card form .btn-primary {
+    display: block;
+    width: 100%;
+    margin-top: 24px;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 800;
+    cursor: pointer;
+    text-align: center;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background-color 0.2s ease;
+}
+
+/* Efecto al pasar el mouse */
+
+.auth-card form .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(108, 39, 178, 0.25);
+}
+
+/* Efecto al presionar */
+
+.auth-card form .btn-primary:active {
+    transform: translateY(0);
+    box-shadow: 0 5px 12px rgba(108, 39, 178, 0.18);
+}
