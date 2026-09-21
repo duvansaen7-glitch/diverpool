@@ -84,6 +84,32 @@ class Usuario
     }
 
     /**
+     * Obtener el ID de un rol por su nombre.
+     */
+    public function obtenerRolIdPorNombre(string $nombre): ?int
+    {
+        $sql = "
+            SELECT id
+            FROM roles
+            WHERE nombre = :nombre
+              AND estado = 1
+            LIMIT 1
+        ";
+
+        $stmt = $this->db->prepare($sql);
+
+        $stmt->execute([
+            ':nombre' => $nombre
+        ]);
+
+        $resultado = $stmt->fetch();
+
+        return $resultado
+            ? (int) $resultado['id']
+            : null;
+    }
+
+    /**
      * Crear un nuevo usuario.
      *
      * El password recibido debe ser texto plano.
