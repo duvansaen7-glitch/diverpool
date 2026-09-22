@@ -15,9 +15,9 @@ require_once __DIR__ . '/includes/navbar.php';
 
 <main>
 
-    <!-- ==========================================
-         INICIO
-    =========================================== -->
+    <!-- =====================================================
+         HERO
+         ===================================================== -->
 
     <section class="hero">
 
@@ -41,35 +41,27 @@ require_once __DIR__ . '/includes/navbar.php';
 
                 <div class="hero-actions">
 
-                    <a
-                        class="btn btn-primary"
-                        href="<?= SITE_URL ?>/pages/public/servicios.php"
-                    >
-                        Conocer servicios
+                    <a class="btn btn-primary" href="<?= SITE_URL ?>/pages/public/servicios.php">
+                        Explorar servicios
                         <span>→</span>
                     </a>
 
                     <?php if (usuarioAutenticado()): ?>
 
-                        <a
-                            class="btn btn-outline"
-                            href="<?= SITE_URL ?>/pages/usuario/mascotas.php"
-                        >
+                        <a class="btn btn-outline" href="<?= SITE_URL ?>/pages/usuario/mascotas.php">
                             Mis mascotas
                         </a>
 
                     <?php else: ?>
 
-                        <a
-                            class="btn btn-outline"
-                            href="<?= SITE_URL ?>/registro.php"
-                        >
+                        <a class="btn btn-outline" href="<?= SITE_URL ?>/registro.php">
                             Crear cuenta
                         </a>
 
                     <?php endif; ?>
 
                 </div>
+
 
                 <div class="trust-row">
 
@@ -84,6 +76,7 @@ require_once __DIR__ . '/includes/navbar.php';
 
                     </div>
 
+
                     <div>
 
                         <b>♡</b>
@@ -94,6 +87,7 @@ require_once __DIR__ . '/includes/navbar.php';
                         </span>
 
                     </div>
+
 
                     <div>
 
@@ -111,11 +105,18 @@ require_once __DIR__ . '/includes/navbar.php';
             </div>
 
 
-            <!-- Ilustración principal -->
+            <!-- =================================================
+                 VISUAL DEL HERO
+                 ================================================= -->
 
             <div class="hero-art">
 
+                <div class="hero-circle hero-circle-one"></div>
+
+                <div class="hero-circle hero-circle-two"></div>
+
                 <div class="blob"></div>
+
 
                 <div class="pet-card dog">
 
@@ -163,6 +164,16 @@ require_once __DIR__ . '/includes/navbar.php';
 
                 </div>
 
+
+                <div class="hero-floating-icon icon-heart">
+                    ♥
+                </div>
+
+
+                <div class="hero-floating-icon icon-paw">
+                    🐾
+                </div>
+
             </div>
 
         </div>
@@ -170,18 +181,419 @@ require_once __DIR__ . '/includes/navbar.php';
     </section>
 
 
-    <!-- ==========================================
-         PRESENTACIÓN
-    =========================================== -->
+    <!-- =====================================================
+         SLIDER DE IMÁGENES
+         ===================================================== -->
 
-    <section class="section">
+    <section class="home-slider-section">
+
+        <div class="container">
+
+            <div class="home-slider">
+
+                <div class="slider-track">
+
+
+                    <!-- =================================================
+                         SLIDE 1
+                         ================================================= -->
+
+                    <article class="home-slide active">
+
+                        <img src="<?= SITE_URL ?>/public/img/slider/piscina.jpeg" alt="Mascota recibiendo cuidados">
+
+                        <div class="slide-overlay"></div>
+
+                        <div class="slide-content">
+
+                            <span>
+                                DIVERPOOL MASCOTAS
+                            </span>
+
+                            <h2>
+                                Cuidado que se siente.
+                            </h2>
+
+                            <p>
+                                Todo lo que su mascota necesita
+                                para estar feliz y saludable.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- =================================================
+                         SLIDE 2
+                         ================================================= -->
+
+                    <article class="home-slide">
+
+                        <img src="<?= SITE_URL ?>/public/img/slider/perro.jpeg" alt="Mascota recibiendo atención">
+
+                        <div class="slide-overlay"></div>
+
+                        <div class="slide-content">
+
+                            <span>
+                                BIENESTAR
+                            </span>
+
+                            <h2>
+                                Porque también es parte de la familia.
+                            </h2>
+
+                            <p>
+                                Servicios pensados para cada etapa
+                                de la vida de su mascota.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- =================================================
+                         SLIDE 3
+                         ================================================= -->
+
+                    <article class="home-slide">
+
+                        <img src="<?= SITE_URL ?>/public/img/slider/mascota-3.jpg"
+                            alt="Mascota disfrutando de sus cuidados">
+
+                        <div class="slide-overlay"></div>
+
+                        <div class="slide-content">
+
+                            <span>
+                                SERVICIOS
+                            </span>
+
+                            <h2>
+                                Un solo lugar para cuidarla.
+                            </h2>
+
+                            <p>
+                                Peluquería, veterinaria, terapias,
+                                guardería y mucho más.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- =================================================
+                         SLIDE 4
+                         ================================================= -->
+
+                    <article class="home-slide">
+
+                        <img src="<?= SITE_URL ?>/public/img/slider/mascota-4.jpg" alt="Mascota feliz">
+
+                        <div class="slide-overlay"></div>
+
+                        <div class="slide-content">
+
+                            <span>
+                                DIVERPOOL
+                            </span>
+
+                            <h2>
+                                Pequeñas patas, grandes historias.
+                            </h2>
+
+                            <p>
+                                Queremos acompañarle en cada momento
+                                del cuidado de su mascota.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+
+                <!-- =================================================
+                     BOTÓN ANTERIOR
+                     ================================================= -->
+
+                <button type="button" class="slider-button slider-prev" aria-label="Imagen anterior">
+                    ‹
+                </button>
+
+
+                <!-- =================================================
+                     BOTÓN SIGUIENTE
+                     ================================================= -->
+
+                <button type="button" class="slider-button slider-next" aria-label="Imagen siguiente">
+                    ›
+                </button>
+
+
+                <!-- =================================================
+                     INDICADORES
+                     ================================================= -->
+
+                <div class="slider-dots">
+
+                    <button type="button" class="slider-dot active" aria-label="Mostrar imagen 1"></button>
+
+                    <button type="button" class="slider-dot" aria-label="Mostrar imagen 2"></button>
+
+                    <button type="button" class="slider-dot" aria-label="Mostrar imagen 3"></button>
+
+                    <button type="button" class="slider-dot" aria-label="Mostrar imagen 4"></button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         EXPLORADOR DE SERVICIOS
+         ===================================================== -->
+
+    <section class="service-explorer-section">
+
+        <div class="container">
+
+            <div class="service-explorer">
+
+                <div class="service-explorer-header">
+
+                    <div>
+
+                        <span class="eyebrow">
+                            DIVERPOOL MASCOTAS
+                        </span>
+
+                        <h2>
+                            ¿Qué necesita su mascota?
+                        </h2>
+
+                        <p>
+                            Explore nuestros servicios y encuentre
+                            la atención adecuada para su compañero.
+                        </p>
+
+                    </div>
+
+
+                    <span class="service-explorer-paw">
+                        🐾
+                    </span>
+
+                </div>
+
+
+                <!-- =================================================
+                     MENÚ DESPLEGABLE DE SERVICIOS
+                     ================================================= -->
+
+                <details class="service-dropdown">
+
+                    <summary>
+
+                        <span class="summary-icon">
+                            ✦
+                        </span>
+
+                        <span class="summary-text">
+
+                            <strong>
+                                Explorar servicios
+                            </strong>
+
+                            <small>
+                                Ver todas las categorías disponibles
+                            </small>
+
+                        </span>
+
+                        <span class="summary-arrow">
+                            ↓
+                        </span>
+
+                    </summary>
+
+
+                    <div class="service-option-grid">
+
+
+                        <!-- PELUQUERÍA -->
+
+                        <a href="<?= SITE_URL ?>/pages/public/servicios.php"
+                            class="service-option service-option-purple">
+
+                            <span class="service-option-icon">
+                                ✂
+                            </span>
+
+                            <span>
+
+                                <strong>
+                                    Peluquería
+                                </strong>
+
+                                <small>
+                                    Baño, secado y corte
+                                </small>
+
+                            </span>
+
+                        </a>
+
+
+                        <!-- VETERINARIA -->
+
+                        <a href="<?= SITE_URL ?>/pages/public/servicios.php" class="service-option service-option-blue">
+
+                            <span class="service-option-icon">
+                                ✚
+                            </span>
+
+                            <span>
+
+                                <strong>
+                                    Veterinaria
+                                </strong>
+
+                                <small>
+                                    Salud y valoración
+                                </small>
+
+                            </span>
+
+                        </a>
+
+
+                        <!-- TERAPIAS -->
+
+                        <a href="<?= SITE_URL ?>/pages/public/servicios.php"
+                            class="service-option service-option-green">
+
+                            <span class="service-option-icon">
+                                ♡
+                            </span>
+
+                            <span>
+
+                                <strong>
+                                    Terapias
+                                </strong>
+
+                                <small>
+                                    Recuperación y bienestar
+                                </small>
+
+                            </span>
+
+                        </a>
+
+
+                        <!-- GUARDERÍA -->
+
+                        <a href="<?= SITE_URL ?>/pages/public/servicios.php"
+                            class="service-option service-option-orange">
+
+                            <span class="service-option-icon">
+                                🏠
+                            </span>
+
+                            <span>
+
+                                <strong>
+                                    Guardería
+                                </strong>
+
+                                <small>
+                                    Cuidado durante el día
+                                </small>
+
+                            </span>
+
+                        </a>
+
+
+                        <!-- GUARDERÍA CAMPESTRE -->
+
+                        <a href="<?= SITE_URL ?>/pages/public/servicios.php"
+                            class="service-option service-option-green-dark">
+
+                            <span class="service-option-icon">
+                                🌳
+                            </span>
+
+                            <span>
+
+                                <strong>
+                                    Guardería campestre
+                                </strong>
+
+                                <small>
+                                    Espacios al aire libre
+                                </small>
+
+                            </span>
+
+                        </a>
+
+
+                        <!-- CONSULTAS -->
+
+                        <a href="<?= SITE_URL ?>/pages/public/servicios.php" class="service-option service-option-pink">
+
+                            <span class="service-option-icon">
+                                💬
+                            </span>
+
+                            <span>
+
+                                <strong>
+                                    Consultas
+                                </strong>
+
+                                <small>
+                                    Comportamiento y nutrición
+                                </small>
+
+                            </span>
+
+                        </a>
+
+
+                    </div>
+
+                </details>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         PRESENTACIÓN
+         ===================================================== -->
+
+    <section class="section home-presentation">
 
         <div class="container">
 
             <div class="section-heading centered">
 
                 <span class="eyebrow">
-                    DIVERPOOL MASCOTAS
+                    UNA PLATAFORMA PENSADA PARA USTED
                 </span>
 
                 <h2>
@@ -189,8 +601,8 @@ require_once __DIR__ . '/includes/navbar.php';
                 </h2>
 
                 <p>
-                    Una plataforma pensada para facilitar la gestión
-                    de los servicios y el bienestar de su mascota.
+                    Organice los servicios, citas y cuidados de
+                    su mascota desde un solo lugar.
                 </p>
 
             </div>
@@ -199,7 +611,17 @@ require_once __DIR__ . '/includes/navbar.php';
 
     </section>
 
+
 </main>
+
+
+<!-- =========================================================
+     JAVASCRIPT DEL SLIDER
+     Se carga antes del footer para evitar problemas de ruta.
+     ========================================================= -->
+
+<script src="<?= SITE_URL ?>/public/js/slider.js"></script>
+
 
 <?php
 

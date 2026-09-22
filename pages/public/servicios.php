@@ -2,9 +2,16 @@
 
 require_once __DIR__ . '/../../config/config.php';
 require_once __DIR__ . '/../../includes/funciones.php';
+require_once __DIR__ . '/../../models/Servicio.php';
 
 $pageTitle = 'Servicios | Diverpool Mascotas';
-$pageDescription = 'Conozca los servicios de Diverpool Mascotas para el cuidado y bienestar de su mascota.';
+
+$pageDescription =
+    'Conozca los servicios de Diverpool Mascotas para el cuidado y bienestar de su mascota.';
+
+$servicioModel = new Servicio();
+
+$services = $servicioModel->obtenerActivos();
 
 require_once __DIR__ . '/../../includes/header.php';
 require_once __DIR__ . '/../../includes/navbar.php';
@@ -13,7 +20,12 @@ require_once __DIR__ . '/../../includes/navbar.php';
 
 <main>
 
+    <!-- =====================================================
+         HERO
+         ===================================================== -->
+
     <section class="hero">
+
         <div class="container">
 
             <div class="hero-copy">
@@ -35,8 +47,13 @@ require_once __DIR__ . '/../../includes/navbar.php';
             </div>
 
         </div>
+
     </section>
 
+
+    <!-- =====================================================
+         SERVICIOS
+         ===================================================== -->
 
     <section class="services section">
 
@@ -54,96 +71,257 @@ require_once __DIR__ . '/../../includes/navbar.php';
                         Nuestros servicios
                     </h2>
 
+                    <p>
+                        Seleccione el servicio que necesita para su mascota.
+                    </p>
+
+                </div>
+
+                <div class="services-count">
+
+                    <strong>
+                        <?= count($services) ?>
+                    </strong>
+
+                    <span>
+                        servicios disponibles
+                    </span>
+
                 </div>
 
             </div>
 
 
-            <div class="service-grid">
+            <?php if (empty($services)): ?>
 
-                <?php
+                <div class="alert alert-info">
 
-                $services = [
+                    Actualmente no hay servicios disponibles.
 
-                    [
-                        'icon' => '✂',
-                        'name' => 'Peluquería canina',
-                        'description' => 'Baño, corte, cepillado y cuidado estético.',
-                        'class' => 'peluqueria'
-                    ],
+                </div>
 
-                    [
-                        'icon' => '♥',
-                        'name' => 'Terapias',
-                        'description' => 'Fisioterapia, rehabilitación y terapias especializadas.',
-                        'class' => 'terapias'
-                    ],
+            <?php else: ?>
 
-                    [
-                        'icon' => '+',
-                        'name' => 'Veterinaria',
-                        'description' => 'Consultas, vacunación, desparasitación y más.',
-                        'class' => 'veterinaria'
-                    ],
 
-                    [
-                        'icon' => '⌂',
-                        'name' => 'Guardería',
-                        'description' => 'Un espacio seguro y divertido mientras no está.',
-                        'class' => 'guarderia'
-                    ],
+                <div class="service-grid">
 
-                    [
-                        'icon' => '♣',
-                        'name' => 'Guardería campestre',
-                        'description' => 'Espacios amplios y naturales para su bienestar.',
-                        'class' => 'campestre'
-                    ],
+                    <?php foreach ($services as $service): ?>
 
-                    [
-                        'icon' => '▣',
-                        'name' => 'Consultas',
-                        'description' => 'Valoraciones generales y asesorías especializadas.',
-                        'class' => 'consultas'
-                    ]
+                        <?php
 
-                ];
+                        $categoria = strtolower(
+                            trim($service['categoria_nombre'] ?? '')
+                        );
 
-                foreach ($services as $service):
+                        /*
+                         * Icono y clase visual según categoría.
+                         */
 
-                ?>
+                        $icon = '🐾';
 
-                    <article class="service-card">
+                        $clase = 'general';
 
-                        <div
-                            class="service-image service-<?= e($service['class']) ?>"
-                        >
+                        switch ($categoria) {
 
-                            <span>
-                                <?= e($service['icon']) ?>
-                            </span>
+                            case 'peluquería':
+                                $icon = '✂';
+                                $clase = 'peluqueria';
+                                break;
 
-                        </div>
+                            case 'veterinaria':
+                                $icon = '+';
+                                $clase = 'veterinaria';
+                                break;
 
-                        <div class="service-body">
+                            case 'terapias':
+                                $icon = '♥';
+                                $clase = 'terapias';
+                                break;
 
-                            <h3>
-                                <?= e($service['name']) ?>
-                            </h3>
+                            case 'guardería':
+                                $icon = '⌂';
+                                $clase = 'guarderia';
+                                break;
 
-                            <p>
-                                <?= e($service['description']) ?>
-                            </p>
+                            case 'guardería campestre':
+                                $icon = '♣';
+                                $clase = 'campestre';
+                                break;
 
-                            <a href="../../registro.php">
-                                Agendar
-                            </a>
+                            case 'consultas':
+                                $icon = '▣';
+                                $clase = 'consultas';
+                                break;
+                        }
 
-                        </div>
+                        ?>
 
-                    </article>
 
-                <?php endforeach; ?>
+                        <article class="service-card">
+
+                            <!-- Imagen / icono -->
+
+                            <div class="service-image service-<?= e($clase) ?>">
+
+                                <span>
+                                    <?= e($icon) ?>
+                                </span>
+
+                            </div>
+
+
+                            <!-- Contenido -->
+
+                            <div class="service-body">
+
+                                <span class="service-category">
+                                    <?= e($service['categoria_nombre']) ?>
+                                </span>
+
+
+                                <h3>
+                                    <?= e($service['nombre']) ?>
+                                </h3>
+
+
+                                <p>
+
+                                    <?= e(
+                                        $service['descripcion']
+                                        ?: 'Servicio especializado para el cuidado y bienestar de su mascota.'
+                                    ) ?>
+
+                                </p>
+
+
+                                <!-- Información -->
+
+                                <div class="service-meta">
+
+                                    <span>
+                                        <strong>
+                                            $
+                                        </strong>
+
+                                        <?= number_format(
+                                            (float) $service['precio'],
+                                            0,
+                                            ',',
+                                            '.'
+                                        ) ?>
+
+                                    </span>
+
+
+                                    <span>
+                                        <?= (int) $service['duracion_minutos'] ?>
+                                        min
+                                    </span>
+
+                                </div>
+
+
+                                <!-- Acción -->
+
+                                <?php if (usuarioAutenticado()): ?>
+
+                                    <a href="<?= SITE_URL ?>/pages/usuario/nueva_reserva.php" class="service-action">
+                                        Agendar
+                                        <span>→</span>
+                                    </a>
+
+                                <?php else: ?>
+
+                                    <a href="<?= SITE_URL ?>/login.php" class="service-action">
+                                        Iniciar sesión
+                                        <span>→</span>
+                                    </a>
+
+                                <?php endif; ?>
+
+
+                            </div>
+
+                        </article>
+
+
+                    <?php endforeach; ?>
+
+                </div>
+
+            <?php endif; ?>
+
+
+            <!-- =================================================
+                 MENSAJE PARA VISITANTES
+                 ================================================= -->
+
+            <?php if (!usuarioAutenticado()): ?>
+
+                <div class="services-login-box">
+
+                    <div class="services-login-icon">
+                        🐾
+                    </div>
+
+                    <div class="services-login-content">
+
+                        <strong>
+                            ¿Ya encontró el servicio que necesita?
+                        </strong>
+
+                        <p>
+                            Inicie sesión para seleccionar su mascota,
+                            consultar los horarios disponibles y realizar
+                            su reserva.
+                        </p>
+
+                    </div>
+
+                    <div class="services-login-actions">
+
+                        <a href="<?= SITE_URL ?>/login.php" class="btn btn-outline">
+                            Iniciar sesión
+                        </a>
+
+                        <a href="<?= SITE_URL ?>/registro.php" class="btn btn-primary">
+                            Crear cuenta
+                        </a>
+
+                    </div>
+
+                </div>
+
+            <?php endif; ?>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CIERRE
+         ===================================================== -->
+
+    <section class="section services-final">
+
+        <div class="container">
+
+            <div class="section-heading centered">
+
+                <span class="eyebrow">
+                    BIENESTAR Y CUIDADO
+                </span>
+
+                <h2>
+                    Cuidamos a quienes hacen parte de su familia.
+                </h2>
+
+                <p>
+                    Todo nuestro sistema está pensado para que pueda
+                    organizar los servicios de su mascota de manera
+                    sencilla y segura.
+                </p>
 
             </div>
 
@@ -153,9 +331,9 @@ require_once __DIR__ . '/../../includes/navbar.php';
 
 </main>
 
+
 <?php
 
 require_once __DIR__ . '/../../includes/footer.php';
 
 ?>
-

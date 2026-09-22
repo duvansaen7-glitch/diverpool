@@ -529,3 +529,1113 @@
 
 
 /* =========================================================
+/* =========================================================
+   DIVERPOOL — REDISEÑO VISUAL DEL INICIO
+   ========================================================= */
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 85% 20%,
+            rgba(126, 34, 206, .13),
+            transparent 32%),
+        radial-gradient(circle at 15% 80%,
+            rgba(255, 122, 24, .08),
+            transparent 28%),
+        #fbf9fd;
+    border-bottom: 1px solid #eee7f3;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    right: -220px;
+    top: -260px;
+    border-radius: 50%;
+    background: rgba(107, 33, 168, .07);
+}
+
+.hero-grid {
+    position: relative;
+    min-height: 590px;
+    gap: 25px;
+}
+
+.hero-copy {
+    padding: 80px 0;
+}
+
+.hero-copy .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+    color: #7c3aed;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: .04em;
+}
+
+.hero-copy .eyebrow::before {
+    content: "";
+    width: 28px;
+    height: 3px;
+    border-radius: 20px;
+    background: #ff7a18;
+}
+
+.hero-copy h1 {
+    max-width: 680px;
+    margin-bottom: 24px;
+    color: #24152f;
+    font-size: clamp(42px, 5vw, 68px);
+    line-height: 1.04;
+    letter-spacing: -2.5px;
+    font-weight: 900;
+}
+
+.hero-copy h1 span {
+    display: block;
+    color: #6b21a8;
+}
+
+.hero-copy>p {
+    max-width: 600px;
+    margin-bottom: 32px;
+    color: #665b6d;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+
+/* =========================================================
+   TRUST
+   ========================================================= */
+
+.trust-row {
+    margin-top: 38px;
+    gap: 12px;
+}
+
+.trust-row>div {
+    min-width: 145px;
+    padding: 11px 14px;
+    border: 1px solid #e9e0ee;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, .72);
+    color: #514957;
+    box-shadow: 0 8px 25px rgba(50, 20, 70, .04);
+}
+
+.trust-row b {
+    background: #f1e7f8;
+    color: #6b21a8;
+}
+
+
+/* =========================================================
+   HERO VISUAL
+   ========================================================= */
+
+.hero-art {
+    min-height: 550px;
+}
+
+.blob {
+    width: 405px;
+    height: 405px;
+    background:
+        radial-gradient(circle at 35% 30%,
+            rgba(255, 255, 255, .95),
+            rgba(232, 213, 244, .85));
+    border: 1px solid rgba(107, 33, 168, .08);
+    box-shadow:
+        0 35px 80px rgba(72, 25, 100, .12),
+        inset 0 0 60px rgba(255, 255, 255, .65);
+}
+
+.pet-card {
+    width: 225px;
+    padding: 20px;
+    border: 1px solid rgba(107, 33, 168, .08);
+    box-shadow:
+        0 25px 50px rgba(45, 20, 60, .14);
+}
+
+.pet-card.dog {
+    top: 55px;
+    left: 35px;
+    transform: rotate(-6deg);
+}
+
+.pet-card.cat {
+    right: 0;
+    bottom: 55px;
+    transform: rotate(5deg);
+}
+
+.pet-card:hover {
+    transform: translateY(-5px) rotate(-3deg);
+}
+
+.pet-card.cat:hover {
+    transform: translateY(-5px) rotate(3deg);
+}
+
+.pet-emoji {
+    background: #f2e7f8;
+}
+
+
+/* =========================================================
+   ELEMENTOS FLOTANTES
+   ========================================================= */
+
+.hero-circle {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.hero-circle-one {
+    width: 85px;
+    height: 85px;
+    top: 55px;
+    right: 60px;
+    border: 1px solid rgba(107, 33, 168, .12);
+}
+
+.hero-circle-two {
+    width: 35px;
+    height: 35px;
+    left: 45px;
+    bottom: 65px;
+    background: rgba(255, 122, 24, .12);
+}
+
+.hero-floating-icon {
+    position: absolute;
+    z-index: 4;
+    width: 48px;
+    height: 48px;
+    display: grid;
+    place-items: center;
+    border-radius: 15px;
+    background: white;
+    color: #6b21a8;
+    box-shadow: 0 15px 30px rgba(45, 20, 60, .12);
+    font-size: 20px;
+}
+
+.icon-heart {
+    top: 115px;
+    right: 85px;
+    transform: rotate(8deg);
+}
+
+.icon-paw {
+    bottom: 110px;
+    left: 75px;
+    transform: rotate(-8deg);
+}
+
+.hero-note {
+    right: 30px;
+    top: 48%;
+    padding: 13px 18px;
+    background: #ff7a18;
+    box-shadow: 0 18px 35px rgba(255, 122, 24, .22);
+}
+
+
+/* =========================================================
+   EXPLORADOR DE SERVICIOS
+   ========================================================= */
+
+.service-explorer-section {
+    position: relative;
+    padding: 85px 0;
+    background: #ffffff;
+}
+
+.service-explorer {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.service-explorer-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 30px;
+    margin-bottom: 28px;
+}
+
+.service-explorer-header .eyebrow {
+    display: block;
+    margin-bottom: 10px;
+    color: #7c3aed;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: .08em;
+}
+
+.service-explorer-header h2 {
+    margin: 0 0 10px;
+    color: #24152f;
+    font-size: clamp(32px, 4vw, 46px);
+    line-height: 1.08;
+    letter-spacing: -1.5px;
+}
+
+.service-explorer-header p {
+    max-width: 600px;
+    margin: 0;
+    color: #706675;
+    line-height: 1.6;
+}
+
+.service-explorer-paw {
+    width: 75px;
+    height: 75px;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    border-radius: 24px;
+    background: #f3e8ff;
+    font-size: 34px;
+    box-shadow: 0 15px 35px rgba(107, 33, 168, .10);
+}
+
+
+/* =========================================================
+   BOTÓN DESPLEGABLE
+   ========================================================= */
+
+.service-dropdown {
+    overflow: hidden;
+    border: 1px solid #e5dced;
+    border-radius: 20px;
+    background: #ffffff;
+    box-shadow: 0 12px 35px rgba(45, 20, 60, .07);
+}
+
+.service-dropdown summary {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 24px;
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+    transition:
+        background .2s ease,
+        border-color .2s ease;
+}
+
+.service-dropdown summary::-webkit-details-marker {
+    display: none;
+}
+
+.service-dropdown summary:hover {
+    background: #fbf8fd;
+}
+
+.summary-icon {
+    width: 46px;
+    height: 46px;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    border-radius: 14px;
+    background: #f0e3f8;
+    color: #6b21a8;
+    font-size: 20px;
+}
+
+.summary-text {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.summary-text strong {
+    color: #291735;
+    font-size: 16px;
+}
+
+.summary-text small {
+    color: #7b7180;
+    font-size: 13px;
+}
+
+.summary-arrow {
+    width: 36px;
+    height: 36px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: #f7f3f9;
+    color: #6b21a8;
+    transition: transform .25s ease;
+}
+
+.service-dropdown[open] .summary-arrow {
+    transform: rotate(180deg);
+}
+
+
+/* =========================================================
+   OPCIONES
+   ========================================================= */
+
+.service-option-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    padding: 0 20px 20px;
+}
+
+.service-option {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    min-height: 105px;
+    padding: 16px;
+    border: 1px solid #ece6ef;
+    border-radius: 16px;
+    color: inherit;
+    text-decoration: none;
+    background: #ffffff;
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        border-color .2s ease;
+}
+
+.service-option:hover {
+    transform: translateY(-4px);
+    border-color: #d8c5e2;
+    box-shadow: 0 14px 30px rgba(45, 20, 60, .09);
+}
+
+.service-option-icon {
+    width: 48px;
+    height: 48px;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    border-radius: 14px;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.service-option span:last-child {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.service-option strong {
+    color: #291735;
+    font-size: 14px;
+}
+
+.service-option small {
+    color: #7b7180;
+    font-size: 11px;
+    line-height: 1.35;
+}
+
+
+/* Colores de iconos */
+
+.service-option-purple .service-option-icon {
+    background: #f0e3f8;
+    color: #6b21a8;
+}
+
+.service-option-blue .service-option-icon {
+    background: #e5f1ff;
+    color: #2563eb;
+}
+
+.service-option-green .service-option-icon {
+    background: #e3f7ed;
+    color: #059669;
+}
+
+.service-option-orange .service-option-icon {
+    background: #fff0e5;
+    color: #ea580c;
+}
+
+.service-option-green-dark .service-option-icon {
+    background: #e8f5e9;
+    color: #388e3c;
+}
+
+.service-option-pink .service-option-icon {
+    background: #fce7f3;
+    color: #db2777;
+}
+
+
+/* =========================================================
+   PRESENTACIÓN
+   ========================================================= */
+
+.home-presentation {
+    padding-top: 35px;
+    padding-bottom: 90px;
+    background: #fbf9fd;
+}
+
+.home-presentation .section-heading {
+    margin-bottom: 0;
+}
+
+.home-presentation .section-heading p {
+    max-width: 620px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .hero-grid {
+        grid-template-columns: 1fr;
+        min-height: auto;
+    }
+
+    .hero-copy {
+        padding: 70px 0 30px;
+    }
+
+    .hero-art {
+        min-height: 470px;
+        margin-bottom: 35px;
+    }
+
+    .service-option-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .hero-copy {
+        padding-top: 50px;
+    }
+
+    .hero-copy h1 {
+        font-size: 42px;
+        letter-spacing: -1.5px;
+    }
+
+    .hero-copy>p {
+        font-size: 15px;
+    }
+
+    .trust-row {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .hero-art {
+        min-height: 390px;
+        transform: scale(.88);
+        transform-origin: center top;
+        margin-left: -25px;
+        margin-right: -25px;
+    }
+
+    .blob {
+        width: 330px;
+        height: 330px;
+    }
+
+    .pet-card {
+        width: 190px;
+    }
+
+    .pet-card.dog {
+        left: 0;
+        top: 35px;
+    }
+
+    .pet-card.cat {
+        right: 0;
+        bottom: 35px;
+    }
+
+    .hero-note {
+        right: 0;
+        font-size: 11px;
+    }
+
+    .service-explorer-section {
+        padding: 60px 0;
+    }
+
+    .service-explorer-header {
+        align-items: flex-start;
+    }
+
+    .service-explorer-paw {
+        display: none;
+    }
+
+    .service-option-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 430px) {
+
+    .hero-copy h1 {
+        font-size: 36px;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+    }
+
+    .hero-actions .btn {
+        width: 100%;
+    }
+
+    .hero-art {
+        transform: scale(.78);
+        margin-bottom: -50px;
+    }
+
+    .service-dropdown summary {
+        padding: 17px;
+    }
+
+    .summary-text small {
+        font-size: 11px;
+    }
+
+}
+
+.home-presentation .section-heading {
+    text-align: center;
+}
+
+.home-presentation .section-heading h2,
+.home-presentation .section-heading p {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* =========================================================
+   SLIDER PRINCIPAL
+   ========================================================= */
+
+.home-slider-section {
+    padding: 70px 0;
+    background: #fbf9fd;
+}
+
+
+/* CONTENEDOR FIJO */
+
+.home-slider {
+    position: relative;
+    width: 100%;
+    height: 420px;
+
+    overflow: hidden;
+
+    border-radius: 28px;
+
+    background: #24152f;
+
+    box-shadow:
+        0 25px 60px rgba(45, 20, 60, .14);
+}
+
+
+/* PISTA */
+
+.slider-track {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+
+/* CADA IMAGEN */
+
+.home-slide {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition: opacity .7s ease;
+}
+
+
+/* IMAGEN ACTIVA */
+
+.home-slide.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+
+/* =========================================================
+   AJUSTE AUTOMÁTICO DE TODAS LAS IMÁGENES
+   ========================================================= */
+
+.home-slide img {
+
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    /*
+     * Todas las imágenes ocupan exactamente
+     * el mismo espacio.
+     */
+    object-fit: cover;
+
+    /*
+     * Punto central de recorte.
+     */
+    object-position: center center;
+
+    transform: scale(1.01);
+}
+
+
+/* =========================================================
+   POSICIÓN INDIVIDUAL DE CADA FOTO
+   ========================================================= */
+
+/*
+ * Si una mascota queda demasiado arriba, abajo,
+ * izquierda o derecha, podemos corregirla aquí
+ * sin modificar la imagen original.
+ */
+
+.home-slide:nth-child(1) img {
+    object-position: center center;
+}
+
+.home-slide:nth-child(2) img {
+    object-position: center center;
+}
+
+.home-slide:nth-child(3) img {
+    object-position: center center;
+}
+
+.home-slide:nth-child(4) img {
+    object-position: center center;
+}
+
+
+/* =========================================================
+   ZOOM SUAVE
+   ========================================================= */
+
+.home-slide.active img {
+    animation: sliderZoom 5s ease-out forwards;
+}
+
+@keyframes sliderZoom {
+
+    from {
+        transform: scale(1.01);
+    }
+
+    to {
+        transform: scale(1.06);
+    }
+
+}
+
+
+/* =========================================================
+   CAPA OSCURA SOBRE LA IMAGEN
+   ========================================================= */
+
+.slide-overlay {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(90deg,
+            rgba(30, 15, 40, .84) 0%,
+            rgba(30, 15, 40, .58) 42%,
+            rgba(30, 15, 40, .18) 100%);
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   TEXTO DEL SLIDER
+   ========================================================= */
+
+.slide-content {
+
+    position: absolute;
+
+    left: 65px;
+    top: 50%;
+
+    z-index: 3;
+
+    max-width: 560px;
+
+    transform: translateY(-50%);
+
+    color: #fff;
+}
+
+
+.slide-content>span {
+
+    display: inline-block;
+
+    margin-bottom: 13px;
+
+    color: #e9c9ff;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    letter-spacing: .13em;
+}
+
+
+.slide-content h2 {
+
+    margin: 0 0 15px;
+
+    color: #fff;
+
+    font-size: clamp(34px, 4vw, 52px);
+
+    line-height: 1.05;
+
+    letter-spacing: -1.5px;
+
+    font-weight: 900;
+}
+
+
+.slide-content p {
+
+    max-width: 500px;
+
+    margin: 0;
+
+    color: rgba(255, 255, 255, .88);
+
+    font-size: 16px;
+
+    line-height: 1.65;
+}
+
+
+/* =========================================================
+   FLECHAS
+   ========================================================= */
+
+.slider-button {
+
+    position: absolute;
+
+    top: 50%;
+
+    z-index: 10;
+
+    width: 46px;
+    height: 46px;
+
+    display: grid;
+    place-items: center;
+
+    padding: 0;
+
+    transform: translateY(-50%);
+
+    border: 1px solid rgba(255, 255, 255, .35);
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, .16);
+
+    backdrop-filter: blur(8px);
+
+    color: #fff;
+
+    font-size: 32px;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+        background .2s ease,
+        color .2s ease,
+        transform .2s ease,
+        border-color .2s ease;
+}
+
+
+.slider-button:hover {
+
+    background: #fff;
+
+    border-color: #fff;
+
+    color: #6b21a8;
+
+    transform:
+        translateY(-50%) scale(1.08);
+}
+
+
+.slider-prev {
+    left: 22px;
+}
+
+
+.slider-next {
+    right: 22px;
+}
+
+
+/* =========================================================
+   INDICADORES
+   ========================================================= */
+
+.slider-dots {
+
+    position: absolute;
+
+    z-index: 10;
+
+    left: 50%;
+    bottom: 22px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    transform: translateX(-50%);
+}
+
+
+.slider-dot {
+
+    width: 8px;
+    height: 8px;
+
+    padding: 0;
+
+    border: 0;
+
+    border-radius: 20px;
+
+    background: rgba(255, 255, 255, .55);
+
+    cursor: pointer;
+
+    transition:
+        width .25s ease,
+        background .25s ease;
+}
+
+
+.slider-dot.active {
+
+    width: 28px;
+
+    background: #fff;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .home-slider {
+
+        height: 390px;
+
+    }
+
+    .slide-content {
+
+        left: 50px;
+
+        max-width: 500px;
+
+    }
+
+}
+
+
+/* =========================================================
+   CELULAR
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .home-slider-section {
+
+        padding: 50px 0;
+
+    }
+
+
+    .home-slider {
+
+        height: 360px;
+
+        border-radius: 20px;
+
+    }
+
+
+    .slide-content {
+
+        left: 30px;
+        right: 30px;
+
+        max-width: none;
+
+    }
+
+
+    .slide-content h2 {
+
+        font-size: 32px;
+
+    }
+
+
+    .slide-content p {
+
+        font-size: 14px;
+
+    }
+
+
+    .slider-button {
+
+        width: 40px;
+        height: 40px;
+
+        font-size: 27px;
+
+    }
+
+
+    .slider-prev {
+
+        left: 12px;
+
+    }
+
+
+    .slider-next {
+
+        right: 12px;
+
+    }
+
+}
+
+
+/* =========================================================
+   CELULAR PEQUEÑO
+   ========================================================= */
+
+@media (max-width: 430px) {
+
+    .home-slider {
+
+        height: 330px;
+
+        border-radius: 18px;
+
+    }
+
+
+    .slide-content {
+
+        left: 22px;
+        right: 22px;
+
+    }
+
+
+    .slide-content h2 {
+
+        font-size: 28px;
+
+    }
+
+
+    .slide-content p {
+
+        font-size: 13px;
+
+        line-height: 1.5;
+
+    }
+
+
+    .slider-dots {
+
+        bottom: 16px;
+
+    }
+
+}

@@ -232,3 +232,175 @@
     }
 
 }
+
+/* =========================================================
+   DETALLE DE RESERVA
+   ========================================================= */
+
+.reserva-detalle-card {
+    max-width: 1000px;
+    margin: 2rem auto;
+    background: #ffffff;
+    border: 1px solid #e8e1ed;
+    border-radius: 18px;
+    box-shadow: 0 12px 35px rgba(45, 20, 60, 0.08);
+    overflow: hidden;
+}
+
+.reserva-detalle-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 2rem;
+    border-bottom: 1px solid #eee8f1;
+}
+
+.reserva-detalle-header h2 {
+    margin: 0.3rem 0 0;
+    color: #24152f;
+    font-size: 1.8rem;
+}
+
+.reserva-detalle-label {
+    color: #6b21a8;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+}
+
+.reserva-estado {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.55rem 0.9rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.reserva-estado-pendiente {
+    background: #fff7ed;
+    color: #c2410c;
+}
+
+.reserva-estado-confirmada {
+    background: #ecfdf5;
+    color: #047857;
+}
+
+.reserva-estado-en-proceso {
+    background: #eff6ff;
+    color: #1d4ed8;
+}
+
+.reserva-estado-completada {
+    background: #f0fdf4;
+    color: #15803d;
+}
+
+.reserva-estado-cancelada {
+    background: #fef2f2;
+    color: #b91c1c;
+}
+
+.reserva-detalle-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    padding: 2rem;
+}
+
+.reserva-detalle-item {
+    padding: 1rem;
+    border: 1px solid #eee8f1;
+    border-radius: 12px;
+    background: #faf9fb;
+}
+
+.reserva-detalle-item span {
+    display: block;
+    margin-bottom: 0.4rem;
+    color: #756b7d;
+    font-size: 0.82rem;
+}
+
+.reserva-detalle-item strong {
+    color: #24152f;
+}
+
+.reserva-detalle-bloque {
+    margin: 0 2rem 1rem;
+    padding: 1.1rem;
+    border-radius: 12px;
+    background: #f8f5fb;
+}
+
+.reserva-detalle-bloque-titulo {
+    display: block;
+    margin-bottom: 0.4rem;
+    color: #6b21a8;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.reserva-detalle-bloque p {
+    margin: 0;
+    color: #514957;
+    line-height: 1.55;
+}
+
+.reserva-detalle-cancelada {
+    margin: 1rem 2rem;
+    padding: 1rem;
+    border-radius: 12px;
+    background: #fef2f2;
+    color: #991b1b;
+}
+
+.reserva-detalle-cancelada p {
+    margin: 0.4rem 0 0;
+}
+
+.reserva-detalle-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    padding: 1.5rem 2rem 2rem;
+}
+
+@media (max-width: 800px) {
+
+    .reserva-detalle-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .reserva-detalle-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .reserva-detalle-grid {
+        grid-template-columns: 1fr;
+        padding: 1.25rem;
+    }
+
+    .reserva-detalle-bloque {
+        margin-left: 1.25rem;
+        margin-right: 1.25rem;
+    }
+
+    .reserva-detalle-actions {
+        flex-direction: column;
+        padding: 1.25rem;
+    }
+
+    .reserva-detalle-actions .btn {
+        width: 100%;
+    }
+
+}
