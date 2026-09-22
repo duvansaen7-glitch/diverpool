@@ -1,0 +1,659 @@
+/* =========================================================
+   DIVERPOOL - ADMINISTRACIÓN DE SERVICIOS
+   ========================================================= */
+
+.admin-servicios-page {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 35px 30px 60px;
+    box-sizing: border-box;
+}
+
+/* =========================================================
+   ENCABEZADO
+   ========================================================= */
+
+.admin-page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+.admin-page-header-content {
+    flex: 1;
+}
+
+.admin-eyebrow {
+    margin: 0 0 8px;
+    color: #7c3aed;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.admin-page-header h1 {
+    margin: 0;
+    color: #1f2937;
+    font-size: 34px;
+    line-height: 1.2;
+    font-weight: 800;
+}
+
+.admin-page-header p {
+    margin: 10px 0 0;
+    max-width: 650px;
+    color: #6b7280;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.admin-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+/* =========================================================
+   BOTONES
+   ========================================================= */
+
+.admin-primary-button,
+.admin-secondary-button {
+    min-height: 44px;
+    padding: 0 18px;
+    border-radius: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+}
+
+.admin-primary-button {
+    background: #ffffff;
+    color: #7c3aed;
+    border: 1px solid #7c3aed;
+}
+
+.admin-primary-button:hover {
+    background: #7c3aed;
+    color: #ffffff;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(124, 58, 237, 0.20);
+}
+
+.admin-secondary-button {
+    background: #ffffff;
+    color: #4b5563;
+    border: 1px solid #d1d5db;
+}
+
+.admin-secondary-button:hover {
+    background: #f9fafb;
+    color: #7c3aed;
+    border-color: #7c3aed;
+}
+
+/* =========================================================
+   MENSAJES
+   ========================================================= */
+
+.admin-service-message {
+    margin-bottom: 25px;
+    padding: 14px 18px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.admin-service-message.success {
+    background: #ecfdf5;
+    color: #047857;
+    border: 1px solid #a7f3d0;
+}
+
+.admin-service-message.error {
+    background: #fef2f2;
+    color: #b91c1c;
+    border: 1px solid #fecaca;
+}
+
+/* =========================================================
+   ESTADÍSTICAS
+   ========================================================= */
+
+.service-admin-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-bottom: 30px;
+}
+
+.service-admin-stat {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 3px 12px rgba(15, 23, 42, 0.05);
+}
+
+.service-admin-stat-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: #f3e8ff;
+    color: #7c3aed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 21px;
+    flex-shrink: 0;
+}
+
+.service-admin-stat-info {
+    min-width: 0;
+}
+
+.service-admin-stat-value {
+    display: block;
+    color: #111827;
+    font-size: 25px;
+    line-height: 1;
+    font-weight: 800;
+}
+
+.service-admin-stat-label {
+    display: block;
+    margin-top: 5px;
+    color: #6b7280;
+    font-size: 13px;
+}
+
+/* =========================================================
+   FORMULARIO
+   ========================================================= */
+
+.service-admin-form-wrapper {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    padding: 28px;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 18px rgba(15, 23, 42, 0.06);
+}
+
+.service-admin-form-title {
+    margin: 0 0 6px;
+    color: #1f2937;
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.service-admin-form-subtitle {
+    margin: 0 0 25px;
+    color: #6b7280;
+    font-size: 14px;
+}
+
+.service-admin-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.service-admin-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.service-admin-field {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.service-admin-field.full {
+    grid-column: 1 / -1;
+}
+
+.service-admin-field label {
+    color: #374151;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.service-admin-field input,
+.service-admin-field select,
+.service-admin-field textarea {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #d1d5db;
+    border-radius: 9px;
+    background: #ffffff;
+    color: #1f2937;
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.service-admin-field input,
+.service-admin-field select {
+    height: 44px;
+    padding: 0 13px;
+}
+
+.service-admin-field textarea {
+    min-height: 110px;
+    padding: 12px 13px;
+    resize: vertical;
+}
+
+.service-admin-field input:focus,
+.service-admin-field select:focus,
+.service-admin-field textarea:focus {
+    border-color: #7c3aed;
+    box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.10);
+}
+
+.service-admin-check {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 44px;
+}
+
+.service-admin-check input {
+    width: 18px;
+    height: 18px;
+    accent-color: #7c3aed;
+    cursor: pointer;
+}
+
+.service-admin-check label {
+    margin: 0;
+    cursor: pointer;
+    color: #4b5563;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.service-admin-form-actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
+    padding-top: 5px;
+}
+
+/* =========================================================
+   BARRA DE FILTROS
+   ========================================================= */
+
+.services-admin-toolbar {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    padding: 18px;
+    margin-bottom: 25px;
+    display: grid;
+    grid-template-columns: minmax(250px, 1fr) 220px 180px;
+    gap: 12px;
+    box-shadow: 0 3px 12px rgba(15, 23, 42, 0.04);
+}
+
+.services-admin-toolbar input,
+.services-admin-toolbar select {
+    width: 100%;
+    height: 43px;
+    padding: 0 13px;
+    box-sizing: border-box;
+    border: 1px solid #d1d5db;
+    border-radius: 9px;
+    background: #ffffff;
+    color: #374151;
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+}
+
+.services-admin-toolbar input:focus,
+.services-admin-toolbar select:focus {
+    border-color: #7c3aed;
+    box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.10);
+}
+
+/* =========================================================
+   GRID DE SERVICIOS
+   ========================================================= */
+
+.services-admin-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.service-admin-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    padding: 21px;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    box-shadow: 0 4px 15px rgba(15, 23, 42, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.service-admin-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.09);
+}
+
+/* =========================================================
+   PARTE SUPERIOR DE TARJETA
+   ========================================================= */
+
+.service-admin-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.service-admin-category {
+    display: inline-flex;
+    align-items: center;
+    max-width: 70%;
+    padding: 5px 10px;
+    border-radius: 20px;
+    background: #f3e8ff;
+    color: #7c3aed;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+
+.service-admin-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 9px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.service-admin-status.active {
+    background: #ecfdf5;
+    color: #047857;
+}
+
+.service-admin-status.inactive {
+    background: #f3f4f6;
+    color: #6b7280;
+}
+
+/* =========================================================
+   CONTENIDO TARJETA
+   ========================================================= */
+
+.service-admin-card h2 {
+    margin: 0 0 9px;
+    color: #1f2937;
+    font-size: 19px;
+    line-height: 1.35;
+    font-weight: 800;
+}
+
+.service-admin-description {
+    min-height: 48px;
+    margin: 0 0 18px;
+    color: #6b7280;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+/* =========================================================
+   DETALLES
+   ========================================================= */
+
+.service-admin-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.service-admin-detail {
+    padding: 12px;
+    border-radius: 10px;
+    background: #f9fafb;
+    border: 1px solid #f0f1f3;
+}
+
+.service-admin-detail-label {
+    display: block;
+    margin-bottom: 4px;
+    color: #9ca3af;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+
+.service-admin-detail-value {
+    display: block;
+    color: #1f2937;
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.service-admin-professional {
+    margin-bottom: 18px;
+    color: #6b7280;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.service-admin-professional.required {
+    color: #7c3aed;
+}
+
+/* =========================================================
+   ACCIONES TARJETA
+   ========================================================= */
+
+.service-admin-card-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 9px;
+    margin-top: auto;
+}
+
+.service-admin-card-actions a,
+.service-admin-card-actions button {
+    min-height: 40px;
+    padding: 0 12px;
+    border-radius: 9px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.service-admin-edit {
+    background: #ffffff;
+    color: #7c3aed;
+    border: 1px solid #c4b5fd;
+}
+
+.service-admin-edit:hover {
+    background: #7c3aed;
+    color: #ffffff;
+    border-color: #7c3aed;
+}
+
+.service-admin-deactivate {
+    background: #ffffff;
+    color: #dc2626;
+    border: 1px solid #fecaca;
+}
+
+.service-admin-deactivate:hover {
+    background: #dc2626;
+    color: #ffffff;
+    border-color: #dc2626;
+}
+
+.service-admin-activate {
+    background: #ffffff;
+    color: #059669;
+    border: 1px solid #a7f3d0;
+}
+
+.service-admin-activate:hover {
+    background: #059669;
+    color: #ffffff;
+    border-color: #059669;
+}
+
+/* =========================================================
+   ESTADO VACÍO
+   ========================================================= */
+
+.service-admin-empty {
+    grid-column: 1 / -1;
+    background: #ffffff;
+    border: 1px dashed #d1d5db;
+    border-radius: 15px;
+    padding: 55px 25px;
+    text-align: center;
+}
+
+.service-admin-empty-icon {
+    font-size: 38px;
+    margin-bottom: 12px;
+}
+
+.service-admin-empty h3 {
+    margin: 0 0 7px;
+    color: #374151;
+    font-size: 18px;
+}
+
+.service-admin-empty p {
+    margin: 0;
+    color: #6b7280;
+    font-size: 14px;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1150px) {
+    .services-admin-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .service-admin-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .services-admin-toolbar {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .services-admin-toolbar input {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 800px) {
+    .admin-servicios-page {
+        padding: 25px 18px 45px;
+    }
+
+    .admin-page-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .admin-header-actions {
+        width: 100%;
+    }
+
+    .admin-header-actions a {
+        flex: 1;
+    }
+
+    .services-admin-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-admin-form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-admin-field.full {
+        grid-column: auto;
+    }
+}
+
+@media (max-width: 600px) {
+    .admin-page-header h1 {
+        font-size: 28px;
+    }
+
+    .service-admin-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .services-admin-toolbar {
+        grid-template-columns: 1fr;
+    }
+
+    .services-admin-toolbar input {
+        grid-column: auto;
+    }
+
+    .service-admin-form-wrapper {
+        padding: 20px;
+    }
+
+    .service-admin-form-actions {
+        flex-direction: column-reverse;
+    }
+
+    .service-admin-form-actions a,
+    .service-admin-form-actions button {
+        width: 100%;
+    }
+
+    .service-admin-card-actions {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,575 @@
+/* =========================================================
+   DIVERPOOL - ADMINISTRACIÓN DE RESERVAS
+   ========================================================= */
+
+.admin-reservas-page {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 35px 30px 60px;
+    box-sizing: border-box;
+}
+
+/* ENCABEZADO */
+
+.admin-page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+.admin-page-header-content {
+    flex: 1;
+}
+
+.admin-eyebrow {
+    margin: 0 0 8px;
+    color: #7c3aed;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.admin-page-header h1 {
+    margin: 0;
+    color: #1f2937;
+    font-size: 34px;
+    line-height: 1.2;
+    font-weight: 800;
+}
+
+.admin-page-header p {
+    margin: 10px 0 0;
+    max-width: 680px;
+    color: #6b7280;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.admin-header-actions {
+    display: flex;
+    gap: 12px;
+}
+
+/* BOTONES */
+
+.admin-secondary-button {
+    min-height: 44px;
+    padding: 0 18px;
+    border-radius: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    color: #4b5563;
+    border: 1px solid #d1d5db;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all .2s ease;
+}
+
+.admin-secondary-button:hover {
+    color: #7c3aed;
+    border-color: #7c3aed;
+    transform: translateY(-1px);
+}
+
+/* MENSAJES */
+
+.admin-reservation-message {
+    margin-bottom: 25px;
+    padding: 14px 18px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.admin-reservation-message.success {
+    background: #ecfdf5;
+    color: #047857;
+    border: 1px solid #a7f3d0;
+}
+
+.admin-reservation-message.error {
+    background: #fef2f2;
+    color: #b91c1c;
+    border: 1px solid #fecaca;
+}
+
+/* ESTADÍSTICAS */
+
+.reservation-admin-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-bottom: 30px;
+}
+
+.reservation-admin-stat {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 3px 12px rgba(15, 23, 42, .05);
+}
+
+.reservation-admin-stat-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: #f3e8ff;
+    color: #7c3aed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 800;
+    flex-shrink: 0;
+}
+
+.reservation-admin-stat-value {
+    display: block;
+    color: #111827;
+    font-size: 25px;
+    line-height: 1;
+    font-weight: 800;
+}
+
+.reservation-admin-stat-label {
+    display: block;
+    margin-top: 5px;
+    color: #6b7280;
+    font-size: 13px;
+}
+
+/* FILTROS */
+
+.reservations-admin-toolbar {
+    display: grid;
+    grid-template-columns: minmax(250px, 1fr) 190px 200px auto auto;
+    gap: 10px;
+    align-items: center;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    padding: 18px;
+    margin-bottom: 25px;
+    box-shadow: 0 3px 12px rgba(15, 23, 42, .04);
+}
+
+.reservations-admin-toolbar input,
+.reservations-admin-toolbar select {
+    width: 100%;
+    height: 43px;
+    box-sizing: border-box;
+    padding: 0 13px;
+    border: 1px solid #d1d5db;
+    border-radius: 9px;
+    background: #ffffff;
+    color: #374151;
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+}
+
+.reservations-admin-toolbar input:focus,
+.reservations-admin-toolbar select:focus {
+    border-color: #7c3aed;
+    box-shadow: 0 0 0 3px rgba(124, 58, 237, .10);
+}
+
+.reservation-filter-button,
+.reservation-clear-button {
+    height: 43px;
+    padding: 0 17px;
+    border-radius: 9px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all .2s ease;
+}
+
+.reservation-filter-button {
+    background: #ffffff;
+    color: #7c3aed;
+    border: 1px solid #7c3aed;
+}
+
+.reservation-filter-button:hover {
+    background: #7c3aed;
+    color: #ffffff;
+}
+
+.reservation-clear-button {
+    background: #f9fafb;
+    color: #6b7280;
+    border: 1px solid #d1d5db;
+}
+
+.reservation-clear-button:hover {
+    color: #7c3aed;
+    border-color: #7c3aed;
+}
+
+/* LISTADO */
+
+.reservations-admin-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+/* TARJETA */
+
+.reservation-admin-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    padding: 21px;
+    box-shadow: 0 4px 15px rgba(15, 23, 42, .05);
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.reservation-admin-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(15, 23, 42, .08);
+}
+
+/* CABECERA */
+
+.reservation-admin-card-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 18px;
+}
+
+.reservation-admin-id {
+    display: block;
+    margin-bottom: 6px;
+    color: #9ca3af;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+}
+
+.reservation-admin-card h2 {
+    margin: 0;
+    color: #1f2937;
+    font-size: 19px;
+    line-height: 1.35;
+    font-weight: 800;
+}
+
+.reservation-admin-status {
+    padding: 6px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+/* ESTADOS */
+
+.reservation-admin-status.pendiente {
+    background: #fff7ed;
+    color: #c2410c;
+}
+
+.reservation-admin-status.confirmada,
+.reservation-admin-status.confirmado {
+    background: #ecfdf5;
+    color: #047857;
+}
+
+.reservation-admin-status.cancelada,
+.reservation-admin-status.cancelado {
+    background: #fef2f2;
+    color: #b91c1c;
+}
+
+.reservation-admin-status.completada,
+.reservation-admin-status.completado {
+    background: #eff6ff;
+    color: #1d4ed8;
+}
+
+/* FECHA */
+
+.reservation-admin-date {
+    margin-bottom: 18px;
+    padding: 15px;
+    border-radius: 11px;
+    background: #f8f7ff;
+    border: 1px solid #ede9fe;
+}
+
+.reservation-admin-date-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.reservation-admin-date strong {
+    color: #5b21b6;
+    font-size: 20px;
+}
+
+.reservation-admin-date span {
+    color: #6d28d9;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+/* INFORMACIÓN */
+
+.reservation-admin-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.reservation-admin-info {
+    min-width: 0;
+    padding: 12px;
+    border-radius: 10px;
+    background: #f9fafb;
+    border: 1px solid #f0f1f3;
+}
+
+.reservation-admin-info span {
+    display: block;
+    margin-bottom: 5px;
+    color: #9ca3af;
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+}
+
+.reservation-admin-info strong {
+    display: block;
+    overflow: hidden;
+    color: #374151;
+    font-size: 13px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.reservation-admin-info small {
+    display: block;
+    margin-top: 3px;
+    overflow: hidden;
+    color: #9ca3af;
+    font-size: 11px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* PRECIO */
+
+.reservation-admin-price {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 16px;
+    padding: 14px 0;
+    border-top: 1px solid #f0f1f3;
+    border-bottom: 1px solid #f0f1f3;
+}
+
+.reservation-admin-price span {
+    color: #6b7280;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.reservation-admin-price strong {
+    color: #7c3aed;
+    font-size: 19px;
+    font-weight: 800;
+}
+
+/* OBSERVACIONES */
+
+.reservation-admin-observations,
+.reservation-admin-cancellation {
+    margin-top: 15px;
+    padding: 13px;
+    border-radius: 10px;
+}
+
+.reservation-admin-observations {
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+}
+
+.reservation-admin-cancellation {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+}
+
+.reservation-admin-observations span,
+.reservation-admin-cancellation span {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.reservation-admin-observations span {
+    color: #6b7280;
+}
+
+.reservation-admin-cancellation span {
+    color: #b91c1c;
+}
+
+.reservation-admin-observations p,
+.reservation-admin-cancellation p {
+    margin: 0;
+    color: #4b5563;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+/* ACCIONES */
+
+.reservation-admin-actions {
+    margin-top: 18px;
+}
+
+.reservation-status-form select {
+    width: 100%;
+    height: 42px;
+    padding: 0 12px;
+    border: 1px solid #c4b5fd;
+    border-radius: 9px;
+    background: #ffffff;
+    color: #6d28d9;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    outline: none;
+    cursor: pointer;
+}
+
+.reservation-status-form select:focus {
+    border-color: #7c3aed;
+    box-shadow: 0 0 0 3px rgba(124, 58, 237, .10);
+}
+
+/* VACÍO */
+
+.reservation-admin-empty {
+    grid-column: 1 / -1;
+    padding: 60px 25px;
+    background: #ffffff;
+    border: 1px dashed #d1d5db;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.reservation-admin-empty-icon {
+    margin-bottom: 12px;
+    font-size: 38px;
+}
+
+.reservation-admin-empty h2 {
+    margin: 0 0 7px;
+    color: #374151;
+    font-size: 19px;
+}
+
+.reservation-admin-empty p {
+    margin: 0;
+    color: #6b7280;
+    font-size: 14px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1150px) {
+
+    .reservation-admin-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .reservations-admin-toolbar {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .reservation-search {
+        grid-column: 1 / -1;
+    }
+
+    .reservations-admin-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 750px) {
+
+    .admin-reservas-page {
+        padding: 25px 18px 45px;
+    }
+
+    .admin-page-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .admin-header-actions {
+        width: 100%;
+    }
+
+    .admin-header-actions a {
+        width: 100%;
+    }
+
+    .reservation-admin-info-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .reservation-admin-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .reservations-admin-toolbar {
+        grid-template-columns: 1fr;
+    }
+
+    .reservation-search {
+        grid-column: auto;
+    }
+
+    .reservation-admin-card-header {
+        flex-direction: column;
+    }
+
+    .reservation-admin-date-main {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
