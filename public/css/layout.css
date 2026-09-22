@@ -230,3 +230,292 @@
 
     font-size: 12px;
 }
+
+/* =========================================================
+   MENÚ DESPLEGABLE DE ADMINISTRACIÓN
+   ========================================================= */
+
+.nav-dropdown {
+    position: relative;
+}
+
+
+.nav-dropdown-toggle {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 9px 12px;
+
+    border: 0;
+
+    border-radius: 9px;
+
+    background: transparent;
+
+    color: #514957;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background .2s ease,
+        color .2s ease;
+}
+
+
+.nav-dropdown-toggle:hover {
+
+    background: #f4ebf8;
+
+    color: #6b21a8;
+}
+
+
+.nav-dropdown-arrow {
+
+    font-size: 12px;
+
+    transition:
+        transform .2s ease;
+}
+
+
+.nav-dropdown.open .nav-dropdown-arrow {
+
+    transform: rotate(180deg);
+}
+
+
+/* =========================================================
+   CAJA DESPLEGABLE
+   ========================================================= */
+
+.nav-dropdown-menu {
+
+    position: absolute;
+
+    top: calc(100% + 12px);
+
+    right: 0;
+
+    z-index: 1000;
+
+    width: 255px;
+
+    padding: 8px;
+
+    border: 1px solid #eadff0;
+
+    border-radius: 15px;
+
+    background: #fff;
+
+    box-shadow:
+        0 18px 45px rgba(45, 20, 60, .14);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform:
+        translateY(-8px) scale(.98);
+
+    transform-origin: top right;
+
+    transition:
+        opacity .2s ease,
+        visibility .2s ease,
+        transform .2s ease;
+}
+
+
+/* ABIERTO */
+
+.nav-dropdown.open .nav-dropdown-menu {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transform:
+        translateY(0) scale(1);
+}
+
+
+/* =========================================================
+   OPCIONES
+   ========================================================= */
+
+.nav-dropdown-menu a {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    width: 100%;
+
+    padding: 11px 10px;
+
+    border-radius: 10px;
+
+    color: #514957;
+
+    text-decoration: none;
+
+    transition:
+        background .18s ease,
+        color .18s ease,
+        transform .18s ease;
+}
+
+
+.nav-dropdown-menu a:hover {
+
+    background: #f8f2fb;
+
+    color: #6b21a8;
+
+    transform: translateX(3px);
+}
+
+
+/* =========================================================
+   ICONOS
+   ========================================================= */
+
+.dropdown-icon {
+
+    width: 36px;
+
+    height: 36px;
+
+    display: grid;
+
+    place-items: center;
+
+    flex-shrink: 0;
+
+    border-radius: 10px;
+
+    background: #f1e6f8;
+
+    color: #6b21a8;
+
+    font-size: 16px;
+
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   TEXTO
+   ========================================================= */
+
+.nav-dropdown-menu a>span:last-child {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 2px;
+
+}
+
+
+.nav-dropdown-menu strong {
+
+    color: #302337;
+
+    font-size: 13px;
+
+    font-weight: 800;
+}
+
+
+.nav-dropdown-menu small {
+
+    color: #8b8190;
+
+    font-size: 10px;
+
+    font-weight: 500;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .nav-dropdown {
+
+        width: 100%;
+
+    }
+
+
+    .nav-dropdown-toggle {
+
+        width: 100%;
+
+        justify-content: space-between;
+
+        padding: 12px 0;
+
+    }
+
+
+    .nav-dropdown-menu {
+
+        position: static;
+
+        width: 100%;
+
+        margin-top: 5px;
+
+        padding: 5px;
+
+        border: 0;
+
+        border-radius: 12px;
+
+        background: #f9f5fb;
+
+        box-shadow: none;
+
+        opacity: 1;
+
+        visibility: visible;
+
+        transform: none;
+
+        display: none;
+    }
+
+
+    .nav-dropdown.open .nav-dropdown-menu {
+
+        display: block;
+
+    }
+
+
+    .nav-dropdown-menu a {
+
+        padding: 10px;
+
+    }
+
+}

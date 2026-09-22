@@ -82,7 +82,7 @@
 </footer>
 
 
-<script src="public/js/main.js"></script>
+<script src="<?= SITE_URL ?>/public/js/main.js"></script>
 
 </body>
 </html>

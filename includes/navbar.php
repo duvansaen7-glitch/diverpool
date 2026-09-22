@@ -8,9 +8,19 @@ require_once __DIR__ . '/funciones.php';
 
     <div class="container nav-wrap">
 
-        <a class="brand" href="<?= SITE_URL ?>/index.php" aria-label="Diverpool Mascotas">
+        <!-- ==========================================
+             LOGO
+        =========================================== -->
 
-            <span class="brand-mark">D</span>
+        <a
+            class="brand"
+            href="<?= SITE_URL ?>/index.php"
+            aria-label="Diverpool Mascotas"
+        >
+
+            <span class="brand-mark">
+                D
+            </span>
 
             <span>
                 <strong>Diverpool</strong>
@@ -19,13 +29,30 @@ require_once __DIR__ . '/funciones.php';
 
         </a>
 
-        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" type="button">
+
+        <!-- ==========================================
+             BOTÓN MENÚ MÓVIL
+        =========================================== -->
+
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Abrir menú"
+            type="button"
+        >
             ☰
         </button>
 
+
+        <!-- ==========================================
+             NAVEGACIÓN
+        =========================================== -->
+
         <nav id="mainNav">
 
-            <!-- ENLACES PÚBLICOS -->
+            <!-- ======================================
+                 ENLACES PÚBLICOS
+            ======================================= -->
 
             <a href="<?= SITE_URL ?>/index.php">
                 Inicio
@@ -50,19 +77,28 @@ require_once __DIR__ . '/funciones.php';
 
             <?php if (usuarioAutenticado()): ?>
 
-                <!-- USUARIO AUTENTICADO -->
+
+                <!-- ==================================
+                     USUARIO AUTENTICADO
+                =================================== -->
 
                 <span class="nav-user">
+
                     Hola,
+
                     <strong>
                         <?= e($_SESSION['usuario_nombres']) ?>
                     </strong>
+
                 </span>
 
 
                 <?php if (tieneRol('Cliente')): ?>
 
-                    <!-- MENÚ CLIENTE -->
+
+                    <!-- ==============================
+                         MENÚ CLIENTE
+                    =============================== -->
 
                     <a href="<?= SITE_URL ?>/pages/usuario/dashboard.php">
                         Mi cuenta
@@ -79,7 +115,10 @@ require_once __DIR__ . '/funciones.php';
 
                 <?php elseif (tieneRol('Profesional')): ?>
 
-                    <!-- MENÚ PROFESIONAL -->
+
+                    <!-- ==============================
+                         MENÚ PROFESIONAL
+                    =============================== -->
 
                     <a href="<?= SITE_URL ?>/pages/profesional/dashboard.php">
                         Panel profesional
@@ -100,53 +139,184 @@ require_once __DIR__ . '/funciones.php';
 
                 <?php elseif (tieneRol('Administrador')): ?>
 
-                    <!-- MENÚ ADMINISTRADOR -->
 
-                    <a href="<?= SITE_URL ?>/pages/admin/dashboard.php">
-                        Administración
-                    </a>
+                    <!-- ==============================
+                         MENÚ ADMINISTRADOR
+                    =============================== -->
 
-                    <a href="<?= SITE_URL ?>/pages/admin/usuarios.php">
-                        Usuarios
-                    </a>
+                    <div class="nav-dropdown">
 
-                    <a href="<?= SITE_URL ?>/pages/admin/profesionales.php">
-                        Profesionales
-                    </a>
+                        <button
+                            type="button"
+                            class="nav-dropdown-toggle"
+                            aria-expanded="false"
+                        >
 
-                    <a href="<?= SITE_URL ?>/pages/admin/servicios.php">
-                        Servicios
-                    </a>
+                            Administración
 
-                    <a href="<?= SITE_URL ?>/pages/admin/reservas.php">
-                        Reservas
-                    </a>
+                            <span class="nav-dropdown-arrow">
+                                ▾
+                            </span>
 
-                    <a href="<?= SITE_URL ?>/pages/admin/reportes.php">
-                        Reportes
-                    </a>
+                        </button>
+
+
+                        <div class="nav-dropdown-menu">
+
+                            <a
+                                href="<?= SITE_URL ?>/pages/admin/dashboard.php"
+                            >
+                                <span class="dropdown-icon">
+                                    ▦
+                                </span>
+
+                                <span>
+                                    <strong>
+                                        Panel administrativo
+                                    </strong>
+
+                                    <small>
+                                        Vista general
+                                    </small>
+                                </span>
+                            </a>
+
+
+                            <a
+                                href="<?= SITE_URL ?>/pages/admin/usuarios.php"
+                            >
+                                <span class="dropdown-icon">
+                                    ◉
+                                </span>
+
+                                <span>
+                                    <strong>
+                                        Usuarios
+                                    </strong>
+
+                                    <small>
+                                        Gestionar usuarios
+                                    </small>
+                                </span>
+                            </a>
+
+
+                            <a
+                                href="<?= SITE_URL ?>/pages/admin/profesionales.php"
+                            >
+                                <span class="dropdown-icon">
+                                    ♟
+                                </span>
+
+                                <span>
+                                    <strong>
+                                        Profesionales
+                                    </strong>
+
+                                    <small>
+                                        Gestionar profesionales
+                                    </small>
+                                </span>
+                            </a>
+
+
+                            <a
+                                href="<?= SITE_URL ?>/pages/admin/servicios.php"
+                            >
+                                <span class="dropdown-icon">
+                                    ✦
+                                </span>
+
+                                <span>
+                                    <strong>
+                                        Servicios
+                                    </strong>
+
+                                    <small>
+                                        Gestionar servicios
+                                    </small>
+                                </span>
+                            </a>
+
+
+                            <a
+                                href="<?= SITE_URL ?>/pages/admin/reservas.php"
+                            >
+                                <span class="dropdown-icon">
+                                    ◷
+                                </span>
+
+                                <span>
+                                    <strong>
+                                        Reservas
+                                    </strong>
+
+                                    <small>
+                                        Gestionar reservas
+                                    </small>
+                                </span>
+                            </a>
+
+
+                            <a
+                                href="<?= SITE_URL ?>/pages/admin/reportes.php"
+                            >
+                                <span class="dropdown-icon">
+                                    ▥
+                                </span>
+
+                                <span>
+                                    <strong>
+                                        Reportes
+                                    </strong>
+
+                                    <small>
+                                        Consultar reportes
+                                    </small>
+                                </span>
+                            </a>
+
+                        </div>
+
+                    </div>
+
 
                 <?php endif; ?>
 
 
-                <!-- CERRAR SESIÓN -->
+                <!-- ==================================
+                     CERRAR SESIÓN
+                =================================== -->
 
-                <a class="login-link" href="<?= SITE_URL ?>/logout.php">
+                <a
+                    class="login-link"
+                    href="<?= SITE_URL ?>/logout.php"
+                >
                     Cerrar sesión
                 </a>
 
 
             <?php else: ?>
 
-                <!-- USUARIO NO AUTENTICADO -->
 
-                <a class="login-link" href="<?= SITE_URL ?>/login.php">
+                <!-- ==================================
+                     USUARIO NO AUTENTICADO
+                =================================== -->
+
+                <a
+                    class="login-link"
+                    href="<?= SITE_URL ?>/login.php"
+                >
                     Iniciar sesión
                 </a>
 
-                <a class="btn btn-primary btn-small" href="<?= SITE_URL ?>/registro.php">
+                <a
+                    class="btn btn-primary btn-small"
+                    href="<?= SITE_URL ?>/registro.php"
+                >
                     Registrarse
                 </a>
+
 
             <?php endif; ?>
 
