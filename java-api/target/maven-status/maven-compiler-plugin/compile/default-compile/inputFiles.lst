@@ -1,0 +1,11 @@
+/opt/lampp/htdocs/diverpool/java-api/src/main/java/com/diverpoool/api/DiverpooolApiApplication.java
+/opt/lampp/htdocs/diverpool/java-api/src/main/java/com/diverpoool/api/config/CorsConfig.java
+/opt/lampp/htdocs/diverpool/java-api/src/main/java/com/diverpoool/api/controller/DisponibilidadController.java
+/opt/lampp/htdocs/diverpool/java-api/src/main/java/com/diverpoool/api/controller/HealthController.java
+/opt/lampp/htdocs/diverpool/java-api/src/main/java/com/diverpoool/api/controller/ReservaController.java
+/opt/lampp/htdocs/diverpool/java-api/src/main/java/com/diverpoool/api/dto/CrearReservaRequest.java
+/opt/lampp/htdocs/diverpool/java-api/src/main/java/com/diverpoool/api/dto/HorarioDisponible.java
+/opt/lampp/htdocs/diverpool/java-api/src/main/java/com/diverpoool/api/repository/DisponibilidadRepository.java
+/opt/lampp/htdocs/diverpool/java-api/src/main/java/com/diverpoool/api/repository/ReservaRepository.java
+/opt/lampp/htdocs/diverpool/java-api/src/main/java/com/diverpoool/api/service/DisponibilidadService.java
+/opt/lampp/htdocs/diverpool/java-api/src/main/java/com/diverpoool/api/service/ReservaService.java

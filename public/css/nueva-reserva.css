@@ -1,0 +1,464 @@
+/* =========================================
+   NUEVA RESERVA
+========================================= */
+
+.reserva-form-card {
+    max-width: 950px;
+    margin: 35px auto 60px;
+
+    background: #ffffff;
+
+    border: 1px solid #e8e1ed;
+    border-radius: 20px;
+
+    box-shadow: 0 8px 25px rgba(40, 20, 50, 0.07);
+
+    overflow: hidden;
+}
+
+
+/* =========================================
+   PROGRESO
+========================================= */
+
+.reserva-progress {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    padding: 25px 30px;
+
+    background: #faf7fd;
+
+    border-bottom: 1px solid #eee7f2;
+}
+
+.reserva-step {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    color: #9a8da0;
+
+    font-size: 13px;
+}
+
+.reserva-step span {
+    width: 30px;
+    height: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #e8e1ec;
+
+    font-weight: 800;
+}
+
+.reserva-step.active {
+    color: #6a1b9a;
+}
+
+.reserva-step.active span {
+    background: #6a1b9a;
+    color: #ffffff;
+}
+
+
+/* =========================================
+   SECCIONES
+========================================= */
+
+.reserva-form-section {
+    padding: 30px;
+
+    border-bottom: 1px solid #eee7f2;
+}
+
+.reserva-form-section h2 {
+    margin: 0 0 7px;
+
+    color: #24182d;
+
+    font-size: 21px;
+}
+
+.form-help {
+    margin: 0 0 22px;
+
+    color: #74677c;
+}
+
+
+/* =========================================
+   MASCOTAS
+========================================= */
+
+.mascotas-reserva-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 15px;
+}
+
+.mascota-reserva-option {
+    cursor: pointer;
+}
+
+.mascota-reserva-option input {
+    position: absolute;
+    opacity: 0;
+}
+
+.mascota-reserva-card {
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 15px;
+
+    border: 2px solid #e8e1ed;
+    border-radius: 14px;
+
+    transition:
+        border-color 0.2s ease,
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.mascota-reserva-option:hover .mascota-reserva-card {
+    border-color: #b88bd0;
+    transform: translateY(-2px);
+}
+
+.mascota-reserva-option input:checked+.mascota-reserva-card {
+    border-color: #6a1b9a;
+    background: #faf5fd;
+    box-shadow: 0 5px 15px rgba(106, 27, 154, 0.10);
+}
+
+.mascota-reserva-card img,
+.mascota-reserva-avatar {
+    width: 58px;
+    height: 58px;
+
+    flex-shrink: 0;
+
+    border-radius: 14px;
+
+    object-fit: cover;
+}
+
+.mascota-reserva-avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #f0e4fa;
+
+    font-size: 25px;
+}
+
+.mascota-reserva-card strong {
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: #291d32;
+
+    font-size: 16px;
+}
+
+.mascota-reserva-card span {
+    color: #796d81;
+
+    font-size: 13px;
+}
+
+
+/* =========================================
+   INFORMACIÓN VACÍA
+========================================= */
+
+.reserva-empty-info {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 15px;
+
+    padding: 20px;
+
+    background: #faf7fd;
+
+    border: 1px dashed #d9cbe0;
+    border-radius: 14px;
+}
+
+.reserva-empty-info>span {
+    font-size: 25px;
+}
+
+.reserva-empty-info strong {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #3a2a42;
+}
+
+.reserva-empty-info p {
+    margin: 0;
+
+    color: #74677c;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================
+   ACCIONES
+========================================= */
+
+.reserva-form-actions {
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 12px;
+
+    padding: 25px 30px;
+}
+
+.reserva-form-actions button:disabled {
+    opacity: 0.5;
+
+    cursor: not-allowed;
+
+    transform: none;
+    box-shadow: none;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 750px) {
+
+    .reserva-progress {
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 15px;
+    }
+
+    .mascotas-reserva-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media (max-width: 500px) {
+
+    .reserva-form-section {
+        padding: 22px;
+    }
+
+    .reserva-form-actions {
+        flex-direction: column;
+
+        padding: 22px;
+    }
+
+    .reserva-form-actions .btn {
+        width: 100%;
+    }
+
+}
+
+.reservation-service-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.reservation-service-card {
+    position: relative;
+    display: block;
+    cursor: pointer;
+}
+
+.reservation-service-card input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.reservation-service-content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-height: 170px;
+    padding: 20px;
+    background: #ffffff;
+    border: 2px solid #e8deed;
+    border-radius: 16px;
+    transition:
+        border-color .25s ease,
+        background-color .25s ease,
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+.reservation-service-card:hover .reservation-service-content {
+    border-color: #b98ad1;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(106, 27, 154, .10);
+}
+
+.reservation-service-card input:checked+.reservation-service-content {
+    border-color: #6a1b9a;
+    background: #faf5fd;
+    box-shadow: 0 8px 22px rgba(106, 27, 154, .16);
+}
+
+.reservation-service-category {
+    color: #6a1b9a;
+    font-size: 13px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+}
+
+.reservation-service-name {
+    color: #24182d;
+    font-size: 18px;
+}
+
+.reservation-service-description {
+    color: #6d6174;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.reservation-service-details {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: auto;
+    padding-top: 12px;
+    border-top: 1px solid #eee6f2;
+    color: #4f4256;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+@media (max-width: 700px) {
+    .reservation-service-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =========================================================
+   CONFIRMACIÓN DE RESERVA
+   ========================================================= */
+
+.confirmacion-reserva {
+    padding: 2rem;
+}
+
+.confirmacion-reserva-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.confirmacion-icon {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #f3e8ff;
+    color: #6b21a8;
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.confirmacion-reserva-header h2 {
+    margin: 0.25rem 0 0.35rem;
+}
+
+.confirmacion-reserva-header p {
+    margin: 0;
+    color: #6b7280;
+}
+
+.confirmacion-reserva-detalles {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.confirmacion-item {
+    padding: 1rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    background: #ffffff;
+}
+
+.confirmacion-label {
+    display: block;
+    margin-bottom: 0.35rem;
+    color: #6b7280;
+    font-size: 0.85rem;
+}
+
+.confirmacion-item strong {
+    color: #24152f;
+}
+
+.confirmacion-aviso {
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    border-radius: 12px;
+    background: #f8f5fb;
+}
+
+.confirmacion-aviso p {
+    margin: 0;
+    color: #5b5561;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+@media (max-width: 700px) {
+
+    .confirmacion-reserva {
+        padding: 1.25rem;
+    }
+
+    .confirmacion-reserva-header {
+        flex-direction: column;
+    }
+
+    .confirmacion-reserva-detalles {
+        grid-template-columns: 1fr;
+    }
+
+}
